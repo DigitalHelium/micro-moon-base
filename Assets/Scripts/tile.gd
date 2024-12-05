@@ -1,10 +1,11 @@
 
-class_name Tile extends Node2D
+class_name Tile 
 
-enum Effect {Elctric, Wall, Fog}
-enum Type {Base, Module, Pit, Observatory, Research, Drill, Path, Empty, Unavailable}
+class TileClass extends Node2D:
+	enum Effect {Elctric, Wall, Fog}
+	enum Type {Base, Module, Pit, Observatory, Research, Drill, Path, Empty, Unavailable}
 
-var type: Type
-var effects: Array[Effect]
+	var type: Type
+	var effects: Array[Effect]
 
-var sprite #не факт что нужно
+	var sprite #не факт что нужно

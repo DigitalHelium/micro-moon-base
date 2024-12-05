@@ -1,7 +1,8 @@
 
 class_name TileManger extends Node2D
 
-const tile = preload("res://Assets/Scripts/tile.gd")
+const Tile = preload("res://Assets/Scripts/tile.gd").Tile
+const Building = preload("res://Assets/Scripts/Building.gd").Building
 
 var tiles: Dictionary = {} 
 
@@ -21,3 +22,10 @@ func is_tile_placeable(tile_position: Vector2) -> bool:
 func update_tile_type(tile_position: Vector2, type: Tile.Type) -> void:
 	if is_tile_exist(tile_position):
 		tiles[tile_position].type = type
+		
+
+
+func can_place_object(building: Building) -> bool:
+	
+	return false
+	
