@@ -6,5 +6,4 @@ class BuildingPartClass extends Node2D:
 	var point_position: Vector2
 	
 	func is_point_placeable(tile: Tile):
-		print('jopa')
 		pass
