@@ -13,7 +13,8 @@ func _ready() -> void:
 func get_building(base_pose: Vector2i) -> Building.BuildingClass:
 	return builds[base_pose]
 	
-func add_building(base_pose: Vector2i, build: Building.BuildingClass) -> void:
+func add_building(base_pose: Vector2i, build: Building.BuildingClass, resource: Dictionary) -> void:
+	build.construct(resource)
 	builds[base_pose] = build
 	print(builds)
 	

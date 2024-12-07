@@ -18,21 +18,11 @@ class BuildingClass extends Node:
 		building_name = name
 		description = desc
 		cost = c
-		
-	# Проверка что можно ставить здание (Нужно будет расширить)
-	func can_construct(res: Dictionary) -> bool:
-		if res.has("metal") and res["metal"].has_amount(cost.metal) and \
-		res.has("energy") and res["energy"].has_amount(cost.energy) and \
-		res.has("science") and res["science"].has_amount(cost.science):
-			return true
-		return false
 	
 	func construct(res: Dictionary) -> bool:
-		if not can_construct(res):
-			return false
-		res["metal"].subtract(cost.metal)
-		res["energy"].subtract(cost.energy)
-		res["science"].subtract(cost.science)
+		res[GameResource.ResourceClass.Type.Metal].subtract(cost.metal)
+		res[GameResource.ResourceClass.Type.Energy].subtract(cost.energy)
+		res[GameResource.ResourceClass.Type.Science].subtract(cost.science)
 		
 		construction_complites.emit()
 		return true
