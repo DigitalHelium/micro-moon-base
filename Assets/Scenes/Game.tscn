@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=4 uid="uid://bf3kmayt1neoq"]
+[gd_scene load_steps=21 format=4 uid="uid://bf3kmayt1neoq"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/ResourceSceneManager.gd" id="1_1nf3s"]
+[ext_resource type="Script" path="res://Assets/Scripts/Managers/ResourceSceneManager.gd" id="1_1nf3s"]
 [ext_resource type="Texture2D" uid="uid://b3jofj8yj2klr" path="res://Assets/Scenes/atlas.png" id="1_6vogn"]
+[ext_resource type="Script" path="res://Assets/Scripts/Managers/BuildingManager.gd" id="2_0rj7d"]
 [ext_resource type="Script" path="res://Assets/Scripts/Map.gd" id="3_6yv6s"]
 [ext_resource type="Script" path="res://Assets/Scenes/Camera.gd" id="3_f1j7i"]
 [ext_resource type="Texture2D" uid="uid://cj8wh2gosffgu" path="res://Assets/Scenes/research_tilemap.png" id="3_qw7v2"]
@@ -315,16 +316,16 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_buhvg")
 sources/1 = SubResource("TileSetAtlasSource_mkahn")
 
-[sub_resource type="SystemFont" id="SystemFont_uxh36"]
-font_names = PackedStringArray("Bauhaus 93")
-
-[sub_resource type="LabelSettings" id="LabelSettings_3uyj3"]
-
 [sub_resource type="SystemFont" id="SystemFont_nxtik"]
 font_names = PackedStringArray("Bauhaus 93")
 
 [sub_resource type="SystemFont" id="SystemFont_ka2cy"]
 font_names = PackedStringArray("Bauhaus 93")
+
+[sub_resource type="SystemFont" id="SystemFont_uxh36"]
+font_names = PackedStringArray("Bauhaus 93")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3uyj3"]
 
 [node name="Game" type="Node"]
 
@@ -332,6 +333,9 @@ font_names = PackedStringArray("Bauhaus 93")
 
 [node name="ResourceManager" type="Node" parent="Systems"]
 script = ExtResource("1_1nf3s")
+
+[node name="BuildingManager" type="Node" parent="Systems"]
+script = ExtResource("2_0rj7d")
 
 [node name="World" type="Node2D" parent="."]
 
@@ -353,21 +357,6 @@ position = Vector2(260, 127)
 zoom = Vector2(1.5, 1.5)
 process_callback = 0
 script = ExtResource("3_f1j7i")
-
-[node name="MetalResource" type="Label" parent="World/Camera2D"]
-unique_name_in_owner = true
-offset_left = -381.0
-offset_top = -184.0
-offset_right = -351.0
-offset_bottom = -161.0
-theme_override_fonts/font = SubResource("SystemFont_uxh36")
-text = "100"
-label_settings = SubResource("LabelSettings_3uyj3")
-horizontal_alignment = 1
-
-[node name="Metal" type="Sprite2D" parent="World/Camera2D/MetalResource"]
-position = Vector2(14, -14)
-texture = ExtResource("3_y468n")
 
 [node name="EnergyResource" type="Label" parent="World/Camera2D"]
 unique_name_in_owner = true
@@ -397,3 +386,18 @@ horizontal_alignment = 1
 position = Vector2(14, -13)
 texture = ExtResource("5_myffd")
 region_rect = Rect2(100, 100, 100, 100)
+
+[node name="MetalResource" type="Label" parent="World/Camera2D"]
+unique_name_in_owner = true
+offset_left = -381.0
+offset_top = -184.0
+offset_right = -351.0
+offset_bottom = -161.0
+theme_override_fonts/font = SubResource("SystemFont_uxh36")
+text = "100"
+label_settings = SubResource("LabelSettings_3uyj3")
+horizontal_alignment = 1
+
+[node name="Metal" type="Sprite2D" parent="World/Camera2D/MetalResource"]
+position = Vector2(14, -14)
+texture = ExtResource("3_y468n")

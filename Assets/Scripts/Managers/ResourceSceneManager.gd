@@ -1,5 +1,5 @@
 extends Node
-const resource_manager_class = preload("res://Assets/Scripts/ResourceManager.gd")
+const resource_manager_class = preload("res://Assets/Scripts/Managers/ResourceManager.gd")
 
 var resource_manager = resource_manager_class.new()
 @onready var metal_res_label = %MetalResource

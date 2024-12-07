@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqpuorp6lng75"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/ResourceSceneManager.gd" id="1_ui1tw"]
-[ext_resource type="Script" path="res://Assets/Scripts/ResourceManager.gd" id="2_e1axm"]
+[ext_resource type="Script" path="res://Assets/Scripts/Managers/ResourceSceneManager.gd" id="1_ui1tw"]
+[ext_resource type="Script" path="res://Assets/Scripts/Managers/ResourceManager.gd" id="2_e1axm"]
 
 [node name="TestBuild" type="Node2D"]
 script = ExtResource("1_ui1tw")
