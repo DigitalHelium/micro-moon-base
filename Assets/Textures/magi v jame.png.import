@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwda6w6su1ax"
-path="res://.godot/imported/energi.png-7e09f54d15c185c69739d57fef9c810f.ctex"
+uid="uid://dc41fvo0c7lbr"
+path="res://.godot/imported/magi v jame.png-d942ad56ac7f47097df9c10481227e88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://energi.png"
-dest_files=["res://.godot/imported/energi.png-7e09f54d15c185c69739d57fef9c810f.ctex"]
+source_file="res://Assets/Textures/magi v jame.png"
+dest_files=["res://.godot/imported/magi v jame.png-d942ad56ac7f47097df9c10481227e88.ctex"]
 
 [params]
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://ckwfg4v022me4"]
 
-[ext_resource type="Script" path="res://Assets/Scenes/menu/menu.gd" id="1_t0yh7"]
-[ext_resource type="Texture2D" uid="uid://dy75267retb6d" path="res://2824536.png" id="2_h5ndd"]
-[ext_resource type="Texture2D" uid="uid://q6odhfjlpqh1" path="res://moon.png" id="3_ao4fp"]
-[ext_resource type="Texture2D" uid="uid://dsd1cp4x21skh" path="res://Magi v jame png (2).png" id="4_vgb3f"]
-[ext_resource type="FontFile" uid="uid://ci540ool1sidk" path="res://pixel-anchor-jack_0.ttf" id="5_8yq7a"]
-[ext_resource type="FontFile" uid="uid://ceo4mc4vdaot8" path="res://PixeloidMono.ttf" id="6_ui614"]
+[ext_resource type="Script" path="res://Assets/Scenes/Menu/menu.gd" id="1_t0yh7"]
+[ext_resource type="Texture2D" uid="uid://dy75267retb6d" path="res://Assets/Textures/2824536.png" id="2_h5ndd"]
+[ext_resource type="Texture2D" uid="uid://q6odhfjlpqh1" path="res://Assets/Textures/moon.png" id="3_ao4fp"]
+[ext_resource type="Texture2D" uid="uid://dsd1cp4x21skh" path="res://Assets/Textures/Magi v jame png (2).png" id="4_vgb3f"]
+[ext_resource type="FontFile" uid="uid://ci540ool1sidk" path="res://Assets/Fonts/pixel-anchor-jack_0.ttf" id="5_8yq7a"]
+[ext_resource type="FontFile" uid="uid://ceo4mc4vdaot8" path="res://Assets/Fonts/PixeloidMono.ttf" id="6_ui614"]
 
 [sub_resource type="Theme" id="Theme_t4idd"]
 

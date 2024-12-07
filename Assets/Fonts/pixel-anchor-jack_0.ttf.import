@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://ci540ool1sidk"
-path="res://.godot/imported/pixel-anchor-jack_0.ttf-761a933ce1754bad32a03d802842e959.fontdata"
+path="res://.godot/imported/pixel-anchor-jack_0.ttf-59e6b0281429a52b4d42fbf23b39e695.fontdata"
 
 [deps]
 
-source_file="res://pixel-anchor-jack_0.ttf"
-dest_files=["res://.godot/imported/pixel-anchor-jack_0.ttf-761a933ce1754bad32a03d802842e959.fontdata"]
+source_file="res://Assets/Fonts/pixel-anchor-jack_0.ttf"
+dest_files=["res://.godot/imported/pixel-anchor-jack_0.ttf-59e6b0281429a52b4d42fbf23b39e695.fontdata"]
 
 [params]
 

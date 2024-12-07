@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cbcruapt8c30t"]
 
-[ext_resource type="Script" path="res://Assets/Scenes/scene_transition.gd" id="1_uybku"]
-[ext_resource type="Texture2D" uid="uid://dsd1cp4x21skh" path="res://Magi v jame png (2).png" id="2_uwj8c"]
-[ext_resource type="FontFile" uid="uid://ci540ool1sidk" path="res://pixel-anchor-jack_0.ttf" id="3_dpmjd"]
+[ext_resource type="Script" path="res://Assets/Scenes/Transition/scene_transition.gd" id="1_uybku"]
+[ext_resource type="Texture2D" uid="uid://dsd1cp4x21skh" path="res://Assets/Textures/Magi v jame png (2).png" id="2_uwj8c"]
+[ext_resource type="FontFile" uid="uid://ci540ool1sidk" path="res://Assets/Fonts/pixel-anchor-jack_0.ttf" id="3_dpmjd"]
 
 [sub_resource type="Animation" id="Animation_nnop1"]
 resource_name = "RESET"
