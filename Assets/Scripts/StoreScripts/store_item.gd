@@ -20,9 +20,7 @@ func _ready() -> void:
 
 		# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(self.get_child_count())
 	pass
 			
 func _get_drag_data(position):
-	print("dsdasdad")
 	return self

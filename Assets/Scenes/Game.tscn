@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Assets/Scripts/Managers/ResourceSceneManager.gd" id="1_1nf3s"]
 [ext_resource type="Texture2D" uid="uid://b3jofj8yj2klr" path="res://Assets/Scenes/atlas.png" id="1_6vogn"]
+[ext_resource type="Script" path="res://Assets/Scripts/Managers/BuildingManager.gd" id="2_83ogw"]
 [ext_resource type="Script" path="res://Assets/Scripts/Map.gd" id="3_6yv6s"]
 [ext_resource type="Script" path="res://Assets/Scenes/Camera.gd" id="3_f1j7i"]
 [ext_resource type="Texture2D" uid="uid://cj8wh2gosffgu" path="res://Assets/Scenes/research_tilemap.png" id="3_qw7v2"]
@@ -11,56 +12,6 @@
 [ext_resource type="Script" path="res://Assets/Scenes/container.gd" id="7_n6s0y"]
 [ext_resource type="FontFile" uid="uid://ci540ool1sidk" path="res://pixel-anchor-jack_0.ttf" id="10_t85vo"]
 [ext_resource type="Script" path="res://Assets/Scripts/quit_button.gd" id="12_maygy"]
-
-[sub_resource type="GDScript" id="GDScript_ceill"]
-script/source = "class_name BuildingManager
-extends Node
-
-var builds: Dictionary = {}
-
-enum Type {
-	RESEARCH_LAB = 0,
-}
-
-func _ready() -> void:
-	pass
-	
-func get_building(base_pose: Vector2i) -> Building.BuildingClass:
-	return builds[base_pose]
-	
-func add_building(base_pose: Vector2i, build: Building.BuildingClass) -> void:
-	builds[base_pose] = build
-	print(builds)
-	
-func init_building(type_build: int) -> Building.BuildingClass:
-	return getInitBuilding(type_build)
-
-func getInitBuilding(type_build: int) -> Building.BuildingClass:
-	match type_build:
-		Type.RESEARCH_LAB: return initResearchBuild()
-		_: return null
-
-func initResearchBuild() -> Building.BuildingClass:
-	var bulding_cost = Building.BuildingCost.new(1,2,3)
-	var building = ResearchBuilding.ResearchBuildingClass.new(\"Research Center\", \"DESC\", bulding_cost)
-	
-	var rows = 2
-	var columns = 3
-	
-	var mat = Matrix.MatrixClass.new(rows, columns)
-	mat.set_value(0 , 0, BuildingPart.BuildingPartClass.Type.Research)
-	mat.set_value(1 , 0, BuildingPart.BuildingPartClass.Type.Path)
-	mat.set_value(1 , 1, BuildingPart.BuildingPartClass.Type.Path)
-	mat.set_value(1 , 2, BuildingPart.BuildingPartClass.Type.Research)
-	
-	building.init_building_parts(mat)
-	return building
-
-func draw_building_to_map(title_map: TileMapLayer, base_pose: Vector2i, building: Building.BuildingClass):
-	for part in building.parts:
-		var place_pos = base_pose + part.point_position
-		title_map.set_cell(place_pos, part.get_building_title_id(), part.get_Atlas_coord())
-"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqbgo"]
 texture = ExtResource("1_6vogn")
@@ -388,7 +339,7 @@ unique_name_in_owner = true
 script = ExtResource("1_1nf3s")
 
 [node name="BuildingManager" type="Node" parent="Systems"]
-script = SubResource("GDScript_ceill")
+script = ExtResource("2_83ogw")
 
 [node name="World" type="Node2D" parent="."]
 

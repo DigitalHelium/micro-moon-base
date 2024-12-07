@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var title_map: TileMapLayer = %rock
+@onready var display_map: TileMapLayer = %display
 @onready var resource_manager_scene = %ResourceManager
 
 
@@ -42,14 +43,16 @@ func place_building(base_pose: Vector2i, type_build: int):
 	print(can_place)
 	if can_place and has_resources:
 		tile_manager.place_object(base_pose, building)
-		for part in building.parts:
-			var place_pos = base_pose + part.point_position
-			title_map.set_cell(place_pos, part.get_building_title_id(), part.get_Atlas_coord())
+		building_manager.draw_building_to_map(title_map, base_pose, building)
 		building_manager.add_building(base_pose, building, resource_manager.get_resources())
 		
 func update_building_preview():
 	var mouse_pos = get_global_mouse_position()
 	var title_pos = title_map.local_to_map(mouse_pos)
+	var building = building_manager.init_building(select_building_type)
+	if (display_map != null):
+		display_map.clear();
+		building_manager.draw_building_to_map(display_map, title_pos, building)
 
 
 func remove_building():

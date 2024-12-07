@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bqb0ghwq0nru4"]
+[gd_scene load_steps=25 format=4 uid="uid://bqb0ghwq0nru4"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Managers/ResourceSceneManager.gd" id="1_oe3yo"]
 [ext_resource type="Script" path="res://Assets/Scripts/Managers/BuildingManager.gd" id="2_lsuga"]
@@ -317,6 +317,97 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_buhvg")
 sources/1 = SubResource("TileSetAtlasSource_mkahn")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x2ctw"]
+texture = ExtResource("3_rf6e3")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_suex7"]
+texture = ExtResource("4_x63xx")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_w61oq"]
+sources/0 = SubResource("TileSetAtlasSource_x2ctw")
+sources/1 = SubResource("TileSetAtlasSource_suex7")
+
 [sub_resource type="SystemFont" id="SystemFont_nxtik"]
 font_names = PackedStringArray("Bauhaus 93")
 
@@ -353,6 +444,11 @@ tile_set = SubResource("TileSet_2rwpf")
 unique_name_in_owner = true
 tile_set = SubResource("TileSet_hacqa")
 script = ExtResource("5_v4pq3")
+
+[node name="display" type="TileMapLayer" parent="World"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.501961)
+tile_set = SubResource("TileSet_w61oq")
 
 [node name="Camera2D" type="Camera2D" parent="World"]
 position = Vector2(260, 127)
