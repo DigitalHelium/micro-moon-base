@@ -7,5 +7,11 @@ class TileClass extends Node:
 
 	var type: Type
 	var effects: Array[Effect]
+	
+	func _init(type: int, effects: Array[int]):
+		self.type = type
+		self.effects = []
+		for i in effects.size():
+			self.effects.append(effects[i])
 
 	var sprite #не факт что нужно

@@ -19,4 +19,8 @@ func _ready():
 	
 	building.init_building_parts(mat)
 	
-	print(building.parts)
+	
+	
+	var tile_manager = TileManger.new(15,10)
+	print(tile_manager.can_place_object(Vector2i(0,0), building))
+	
