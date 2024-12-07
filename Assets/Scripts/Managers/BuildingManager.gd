@@ -13,9 +13,12 @@ func _ready() -> void:
 func get_building(base_pose: Vector2i) -> Building.BuildingClass:
 	return builds[base_pose]
 	
-func add_building(base_pose: Vector2i, type_build: int) -> Building.BuildingClass:
-	builds[base_pose] = getInitBuilding(type_build)
-	return builds[base_pose]
+func add_building(base_pose: Vector2i, build: Building.BuildingClass) -> void:
+	builds[base_pose] = build
+	print(builds)
+	
+func init_building(type_build: int) -> Building.BuildingClass:
+	return getInitBuilding(type_build)
 
 func getInitBuilding(type_build: int) -> Building.BuildingClass:
 	match type_build:
