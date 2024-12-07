@@ -21,6 +21,9 @@ func _ready():
 	
 	
 	
-	var tile_manager = TileManger.new(15,10)
-	print(tile_manager.can_place_object(Vector2i(0,0), building))
+	var tile_manager = TileManger.new(150,100)
+	var can_place = tile_manager.can_place_object(Vector2i(0,0), building)
+	print(can_place)
+	tile_manager.place_object(Vector2i(0,0), building)
+	building.do_when_placed(Vector2i(0,0), tile_manager, resource_manager)
 	

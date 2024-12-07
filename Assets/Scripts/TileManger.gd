@@ -11,7 +11,11 @@ func _init(height: int, width: int):
 	for i in height:
 		for j in width:
 			var coordinates = Vector2i(i,j)
-			var current_tile = Tile.TileClass.new(Tile.TileClass.Type.Basic, [Tile.TileClass.Effect.Elctric])
+			var current_tile
+			if i == 1 and j == 3:
+				current_tile = Tile.TileClass.new(Tile.TileClass.Type.Crystal, [Tile.TileClass.Effect.Elctric])
+			else:
+				current_tile = Tile.TileClass.new(Tile.TileClass.Type.Basic, [Tile.TileClass.Effect.Elctric])
 			tiles[coordinates] = current_tile
 	
 	
@@ -21,7 +25,7 @@ func is_tile_exist(tile_position: Vector2i) -> bool:
 
 func is_tile_placeable(tile_position: Vector2i) -> bool:
 	if is_tile_exist(tile_position):
-		return tiles[tile_position].type != Tile.TileClass.Type.Unavailable
+		return tiles[tile_position].type == Tile.TileClass.Type.Basic
 	return false
 	
 	
