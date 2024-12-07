@@ -47,5 +47,5 @@ class BuildingPartClass extends Node:
 	func is_point_placeable_ext(tile: Tile.TileClass) -> bool:	 
 		return false
 	
-	func do_when_placed() -> void:
+	func do_when_placed(position: Vector2i, tile_manager: TileManger) -> void:
 		pass

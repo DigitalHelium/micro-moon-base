@@ -9,3 +9,6 @@ class PowerTowerPartClass extends BuildingPart.BuildingPartClass:
 		if !tile.effects.has(Tile.TileClass.Effect.Taken):
 			return true
 		return false
+		
+	func do_when_placed(tile_manager: TileManger) -> void:
+		pass

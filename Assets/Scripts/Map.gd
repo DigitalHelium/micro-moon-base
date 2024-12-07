@@ -54,4 +54,9 @@ func place_building(base_pose: Vector2i):
 func update_building_preview():
 	var mouse_pos = get_global_mouse_position()
 	var title_pos = title_map.local_to_map(mouse_pos)
-	
+
+
+func remove_building():
+	#tile_manager.remove_object(base_pose, building)
+	#title_map.erase_cell(place_pos)
+	pass
