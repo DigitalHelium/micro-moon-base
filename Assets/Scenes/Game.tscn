@@ -335,6 +335,7 @@ font_names = PackedStringArray("Bauhaus 93")
 [node name="Systems" type="Node" parent="."]
 
 [node name="ResourceManager" type="Node" parent="Systems"]
+unique_name_in_owner = true
 script = ExtResource("1_1nf3s")
 
 [node name="BuildingManager" type="Node" parent="Systems"]
