@@ -53,6 +53,11 @@ class BuildingClass extends Node:
 	
 	func init_part_class(type: int) -> BuildingPart.BuildingPartClass:
 		return null
+		
+	func do_when_placed(position: Vector2i, tile_manager: TileManger) -> void:
+		for part in parts:
+			part.do_when_placed(position, tile_manager)
+		pass
 	
 class BuildingCost:
 	var metal: int = 0
