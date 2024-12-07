@@ -5,6 +5,8 @@ class BuildingPartClass extends Node:
 	var point_position: Vector2i
 	var parent_building: Building.BuildingClass
 	var is_occupied: bool = false
+	var atlas_coord = Vector2i(0,0)
+	var building_title_id = 1
 	
 	const INVALID_TERRAIN_TYPES = {}
 	
@@ -31,8 +33,15 @@ class BuildingPartClass extends Node:
 		
 	func set_occupird(occ: bool) -> void:
 		is_occupied = occ
-
-
+		
+	func get_Atlas_coord() -> Vector2i:
+		return atlas_coord
+		
+	func set_Atlas_coord(coords: Vector2i) -> void:
+		atlas_coord = coords
+	
+	func get_building_title_id() -> int:
+		return building_title_id
 
 	# Наследование жопы
 	func is_point_placeable_ext(tile: Tile.TileClass) -> bool:	 
