@@ -5,7 +5,7 @@ class ResearchPartClass extends BuildingPart.BuildingPartClass:
 	var building_title_id_research = 1
 	
 	func is_point_placeable_ext(tile: Tile.TileClass) -> bool:	
-		if tile.type == Tile.TileClass.Type.Empty:
+		if !tile.effects.has(Tile.TileClass.Effect.Taken):
 			return true
 		return false
 	

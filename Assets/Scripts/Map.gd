@@ -6,9 +6,12 @@ const LAYER_ID = 0
 const BUILDING_TITLE_ID = 1
 
 var building_mode = false
+var tile_manager: TileManger
+
 
 func _ready() -> void:
 	building_mode = true
+	tile_manager = TileManger.new(15,10)
 	pass
 	
 	
@@ -40,13 +43,13 @@ func place_building(base_pose: Vector2i):
 	
 	building.init_building_parts(mat)
 	
-	
-	
-	var tile_manager = TileManger.new(15,10)
-	print(tile_manager.can_place_object(Vector2i(0,0), building))
-	for part in building.parts:
-		var place_pos = base_pose + part.point_position
-		title_map.set_cell(place_pos, part.get_building_title_id(), part.get_Atlas_coord())
+	var can_place = tile_manager.can_place_object(base_pose, building)
+	print(can_place)
+	if can_place:
+		tile_manager.place_object(base_pose, building)
+		for part in building.parts:
+			var place_pos = base_pose + part.point_position
+			title_map.set_cell(place_pos, part.get_building_title_id(), part.get_Atlas_coord())
 		
 func update_building_preview():
 	var mouse_pos = get_global_mouse_position()

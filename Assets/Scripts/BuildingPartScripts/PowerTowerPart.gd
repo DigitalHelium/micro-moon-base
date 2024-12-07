@@ -6,6 +6,6 @@ class PowerTowerPartClass extends BuildingPart.BuildingPartClass:
 		return tile.effects.has(Tile.TileClass.Effect.Elctric)
 		
 	func is_point_placeable_ext(tile: Tile.TileClass) -> bool:	
-		if tile.type == Tile.TileClass.Type.Empty:
+		if !tile.effects.has(Tile.TileClass.Effect.Taken):
 			return true
 		return false

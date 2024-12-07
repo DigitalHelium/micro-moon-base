@@ -2,8 +2,8 @@
 class_name Tile
 
 class TileClass extends Node:
-	enum Effect {Elctric, Wall, Fog}
-	enum Type {Pit, Crystal, Taken, Empty, Unavailable}
+	enum Effect {Elctric, Wall, Fog, Taken}
+	enum Type {Basic, Pit, Crystal, Unavailable}
 
 	var type: Type
 	var effects: Array[Effect]
