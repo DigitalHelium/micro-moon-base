@@ -1,5 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bqb0ghwq0nru4"]
-[gd_scene load_steps=25 format=4 uid="uid://bqb0ghwq0nru4"]
+[gd_scene load_steps=27 format=4 uid="uid://bqb0ghwq0nru4"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Managers/ResourceSceneManager.gd" id="1_oe3yo"]
 [ext_resource type="Script" path="res://Assets/Scripts/Managers/BuildingManager.gd" id="2_lsuga"]
@@ -412,9 +411,6 @@ texture = ExtResource("4_x63xx")
 sources/0 = SubResource("TileSetAtlasSource_x2ctw")
 sources/1 = SubResource("TileSetAtlasSource_suex7")
 
-[sub_resource type="SystemFont" id="SystemFont_nxtik"]
-font_names = PackedStringArray("Bauhaus 93")
-
 [sub_resource type="SystemFont" id="SystemFont_00p3h"]
 font_names = PackedStringArray("Bauhaus 93")
 
@@ -487,7 +483,6 @@ offset_left = 70.6667
 offset_top = 42.6667
 offset_right = 98.6667
 offset_bottom = 61.6667
-theme_override_fonts/font = SubResource("SystemFont_7bmhk")
 text = "100"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
