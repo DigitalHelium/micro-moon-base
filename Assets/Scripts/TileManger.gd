@@ -59,6 +59,13 @@ func can_place_object(position: Vector2i, building: Building.BuildingClass) -> b
 			return false
 	return true
 
+func can_place_part(part: BuildingPart.BuildingPartClass, position: Vector2i) -> bool:
+	if !is_tile_placeable(position + part.point_position):
+		return false
+	if !part.is_point_placeable_ext(tiles[position + part.point_position]):
+		return false
+	return true;
+
 func place_object(position: Vector2i, building: Building.BuildingClass) -> void:
 	for part in building.parts:
 		add_tile_effect(position + part.point_position, Tile.TileClass.Effect.Taken)
