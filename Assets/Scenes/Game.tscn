@@ -6,11 +6,11 @@
 [ext_resource type="Script" path="res://Assets/Scripts/Map.gd" id="3_6yv6s"]
 [ext_resource type="Script" path="res://Assets/Scenes/Camera.gd" id="3_f1j7i"]
 [ext_resource type="Texture2D" uid="uid://cj8wh2gosffgu" path="res://Assets/Scenes/research_tilemap.png" id="3_qw7v2"]
-[ext_resource type="Texture2D" uid="uid://cb63gwp2d8ml6" path="res://metal.png" id="3_y468n"]
-[ext_resource type="Texture2D" uid="uid://bwda6w6su1ax" path="res://energi.png" id="4_p68tr"]
-[ext_resource type="Texture2D" uid="uid://bc83em6lfcm4t" path="res://poison.png" id="5_myffd"]
+[ext_resource type="Texture2D" uid="uid://cb63gwp2d8ml6" path="res://Assets/Textures/metal.png" id="3_y468n"]
+[ext_resource type="Texture2D" uid="uid://bwda6w6su1ax" path="res://Assets/Textures/energi.png" id="4_p68tr"]
+[ext_resource type="Texture2D" uid="uid://bc83em6lfcm4t" path="res://Assets/Textures/poison.png" id="5_myffd"]
 [ext_resource type="Script" path="res://Assets/Scenes/container.gd" id="7_n6s0y"]
-[ext_resource type="FontFile" uid="uid://ci540ool1sidk" path="res://pixel-anchor-jack_0.ttf" id="10_t85vo"]
+[ext_resource type="FontFile" uid="uid://ci540ool1sidk" path="res://Assets/Fonts/pixel-anchor-jack_0.ttf" id="10_t85vo"]
 [ext_resource type="Script" path="res://Assets/Scripts/quit_button.gd" id="12_maygy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqbgo"]
@@ -363,6 +363,7 @@ process_callback = 0
 script = ExtResource("3_f1j7i")
 
 [node name="Container" type="CanvasLayer" parent="World/Camera2D"]
+layer = 0
 scale = Vector2(1.5, 1.5)
 transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 script = ExtResource("7_n6s0y")
