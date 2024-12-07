@@ -48,4 +48,5 @@ class BuildingPartClass extends Node:
 		return false
 	
 	func do_when_placed(position: Vector2i, tile_manager: TileManger, resource_manager: ResourceManager) -> void:
+		#print("do_when_placed() called from BildingPartClass")
 		pass

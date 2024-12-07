@@ -1,20 +1,18 @@
-[gd_scene load_steps=24 format=4 uid="uid://bf3kmayt1neoq"]
+[gd_scene load_steps=22 format=4 uid="uid://bqb0ghwq0nru4"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Managers/ResourceSceneManager.gd" id="1_1nf3s"]
-[ext_resource type="Texture2D" uid="uid://b3jofj8yj2klr" path="res://Assets/Scenes/atlas.png" id="1_6vogn"]
-[ext_resource type="Script" path="res://Assets/Scripts/Managers/BuildingManager.gd" id="2_1eijp"]
-[ext_resource type="Script" path="res://Assets/Scripts/Map.gd" id="3_6yv6s"]
-[ext_resource type="Script" path="res://Assets/Scenes/Camera.gd" id="3_f1j7i"]
-[ext_resource type="Texture2D" uid="uid://cj8wh2gosffgu" path="res://Assets/Scenes/research_tilemap.png" id="3_qw7v2"]
-[ext_resource type="Texture2D" uid="uid://cb63gwp2d8ml6" path="res://metal.png" id="3_y468n"]
-[ext_resource type="Texture2D" uid="uid://bwda6w6su1ax" path="res://energi.png" id="4_p68tr"]
-[ext_resource type="Texture2D" uid="uid://bc83em6lfcm4t" path="res://poison.png" id="5_myffd"]
-[ext_resource type="Script" path="res://Assets/Scenes/container.gd" id="7_n6s0y"]
-[ext_resource type="FontFile" uid="uid://ci540ool1sidk" path="res://pixel-anchor-jack_0.ttf" id="10_t85vo"]
-[ext_resource type="Script" path="res://Assets/Scripts/quit_button.gd" id="12_maygy"]
+[ext_resource type="Script" path="res://Assets/Scripts/Managers/ResourceSceneManager.gd" id="1_oe3yo"]
+[ext_resource type="Script" path="res://Assets/Scripts/Managers/BuildingManager.gd" id="2_lsuga"]
+[ext_resource type="Texture2D" uid="uid://b3jofj8yj2klr" path="res://Assets/Scenes/atlas.png" id="3_rf6e3"]
+[ext_resource type="Texture2D" uid="uid://cj8wh2gosffgu" path="res://Assets/Scenes/research_tilemap.png" id="4_x63xx"]
+[ext_resource type="Script" path="res://Assets/Scripts/Map.gd" id="5_v4pq3"]
+[ext_resource type="Script" path="res://Assets/Scenes/Camera.gd" id="6_0dt5g"]
+[ext_resource type="Texture2D" uid="uid://bwda6w6su1ax" path="res://energi.png" id="7_37mkq"]
+[ext_resource type="Texture2D" uid="uid://bc83em6lfcm4t" path="res://poison.png" id="8_hq635"]
+[ext_resource type="Texture2D" uid="uid://cb63gwp2d8ml6" path="res://metal.png" id="9_nlqus"]
+[ext_resource type="PackedScene" uid="uid://bsyettj18sx5e" path="res://Assets/Scenes/Store/Store.tscn" id="10_3d0f8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqbgo"]
-texture = ExtResource("1_6vogn")
+texture = ExtResource("3_rf6e3")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -81,7 +79,7 @@ texture = ExtResource("1_6vogn")
 sources/0 = SubResource("TileSetAtlasSource_sqbgo")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s8nra"]
-texture = ExtResource("1_6vogn")
+texture = ExtResource("3_rf6e3")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -148,7 +146,7 @@ texture = ExtResource("1_6vogn")
 sources/0 = SubResource("TileSetAtlasSource_s8nra")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_buhvg"]
-texture = ExtResource("1_6vogn")
+texture = ExtResource("3_rf6e3")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -212,7 +210,7 @@ texture = ExtResource("1_6vogn")
 8:8/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mkahn"]
-texture = ExtResource("3_qw7v2")
+texture = ExtResource("4_x63xx")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -319,10 +317,10 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_buhvg")
 sources/1 = SubResource("TileSetAtlasSource_mkahn")
 
-[sub_resource type="SystemFont" id="SystemFont_ka2cy"]
+[sub_resource type="SystemFont" id="SystemFont_nxtik"]
 font_names = PackedStringArray("Bauhaus 93")
 
-[sub_resource type="SystemFont" id="SystemFont_nxtik"]
+[sub_resource type="SystemFont" id="SystemFont_ka2cy"]
 font_names = PackedStringArray("Bauhaus 93")
 
 [sub_resource type="SystemFont" id="SystemFont_uxh36"]
@@ -336,10 +334,10 @@ font_names = PackedStringArray("Bauhaus 93")
 
 [node name="ResourceManager" type="Node" parent="Systems"]
 unique_name_in_owner = true
-script = ExtResource("1_1nf3s")
+script = ExtResource("1_oe3yo")
 
 [node name="BuildingManager" type="Node" parent="Systems"]
-script = ExtResource("2_1eijp")
+script = ExtResource("2_lsuga")
 
 [node name="World" type="Node2D" parent="."]
 
@@ -354,81 +352,56 @@ tile_set = SubResource("TileSet_2rwpf")
 [node name="rock" type="TileMapLayer" parent="World"]
 unique_name_in_owner = true
 tile_set = SubResource("TileSet_hacqa")
-script = ExtResource("3_6yv6s")
+script = ExtResource("5_v4pq3")
 
 [node name="Camera2D" type="Camera2D" parent="World"]
 position = Vector2(260, 127)
 zoom = Vector2(1.5, 1.5)
 process_callback = 0
-script = ExtResource("3_f1j7i")
+script = ExtResource("6_0dt5g")
 
-[node name="Container" type="CanvasLayer" parent="World/Camera2D"]
-layer = 0
-scale = Vector2(1.5, 1.5)
-transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
-script = ExtResource("7_n6s0y")
-
-[node name="Button" type="Button" parent="World/Camera2D/Container"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -423.333
-offset_top = 7.33333
-offset_right = -396.333
-offset_bottom = 41.3333
-grow_horizontal = 0
-theme_type_variation = &"FlatButton"
-theme_override_fonts/font = ExtResource("10_t85vo")
-text = "X"
-script = ExtResource("12_maygy")
-metadata/_edit_use_anchors_ = true
-
-[node name="ScienceResource" type="Label" parent="World/Camera2D/Container"]
+[node name="EnergyResource" type="Label" parent="World/Camera2D"]
 unique_name_in_owner = true
-offset_left = 70.6667
-offset_top = 42.6667
-offset_right = 98.6667
-offset_bottom = 61.6667
-theme_override_fonts/font = SubResource("SystemFont_ka2cy")
-text = "100"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Poison" type="Sprite2D" parent="World/Camera2D/Container/ScienceResource"]
-position = Vector2(14, -13)
-texture = ExtResource("5_myffd")
-region_rect = Rect2(100, 100, 100, 100)
-
-[node name="EnergyResource" type="Label" parent="World/Camera2D/Container"]
-unique_name_in_owner = true
-offset_left = 42.6667
-offset_top = 42.6667
-offset_right = 70.6667
-offset_bottom = 61.6667
+offset_left = -346.0
+offset_top = -184.0
+offset_right = -318.0
+offset_bottom = -161.0
 theme_override_fonts/font = SubResource("SystemFont_nxtik")
 text = "100"
 horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
 
-[node name="Energi" type="Sprite2D" parent="World/Camera2D/Container/EnergyResource"]
+[node name="Energi" type="Sprite2D" parent="World/Camera2D/EnergyResource"]
 position = Vector2(12, -14)
-texture = ExtResource("4_p68tr")
+texture = ExtResource("7_37mkq")
 
-[node name="MetalResource" type="Label" parent="World/Camera2D/Container"]
+[node name="ScienceResource" type="Label" parent="World/Camera2D"]
 unique_name_in_owner = true
-offset_left = 12.6667
-offset_top = 42.6667
-offset_right = 40.6667
-offset_bottom = 61.6667
+offset_left = -311.0
+offset_top = -184.0
+offset_right = -283.0
+offset_bottom = -161.0
+theme_override_fonts/font = SubResource("SystemFont_ka2cy")
+text = "100"
+horizontal_alignment = 1
+
+[node name="Poison" type="Sprite2D" parent="World/Camera2D/ScienceResource"]
+position = Vector2(14, -13)
+texture = ExtResource("8_hq635")
+region_rect = Rect2(100, 100, 100, 100)
+
+[node name="MetalResource" type="Label" parent="World/Camera2D"]
+unique_name_in_owner = true
+offset_left = -381.0
+offset_top = -184.0
+offset_right = -351.0
+offset_bottom = -161.0
 theme_override_fonts/font = SubResource("SystemFont_uxh36")
 text = "100"
 label_settings = SubResource("LabelSettings_3uyj3")
 horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
 
-[node name="Metal" type="Sprite2D" parent="World/Camera2D/Container/MetalResource"]
+[node name="Metal" type="Sprite2D" parent="World/Camera2D/MetalResource"]
 position = Vector2(14, -14)
-texture = ExtResource("3_y468n")
+texture = ExtResource("9_nlqus")
 
-[connection signal="pressed" from="World/Camera2D/Container/Button" to="Systems/ResourceManager" method="_on_button_pressed"]
-[connection signal="pressed" from="World/Camera2D/Container/Button" to="World/Camera2D/Container/Button" method="_on_pressed"]
+[node name="Store" parent="." instance=ExtResource("10_3d0f8")]
