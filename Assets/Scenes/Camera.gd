@@ -33,13 +33,6 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			zoom = Vector2.ONE * clamp(zoom.x - zoom_speed, min_zoom, max_zoom)
-<<<<<<< HEAD
-			
-			print(get_target_position())
-			print("zoom out")
-=======
->>>>>>> 6bbe73e9bfd9878935dfd15987e2298cacca8cc5
+
 		elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			zoom = Vector2.ONE * clamp(zoom.x + zoom_speed, min_zoom, max_zoom)
-			print(get_target_position())
-			print("zoom in")

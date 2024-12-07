@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Micro Moon Base"
-run/main_scene="res://Assets/Scenes/ResearchPart.tscn"
+run/main_scene="res://Assets/Scenes/menu/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneTransition="*res://Assets/Scenes/scene_transition.tscn"
 
 [input]
 

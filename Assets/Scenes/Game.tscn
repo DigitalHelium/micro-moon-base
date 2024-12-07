@@ -362,6 +362,7 @@ process_callback = 0
 script = ExtResource("3_f1j7i")
 
 [node name="Container" type="CanvasLayer" parent="World/Camera2D"]
+layer = 0
 scale = Vector2(1.5, 1.5)
 transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 script = ExtResource("7_n6s0y")
