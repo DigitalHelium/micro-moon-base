@@ -29,7 +29,5 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			zoom = Vector2.ONE * clamp(zoom.x - zoom_speed, min_zoom, max_zoom)
-			#metal_labe.scale = Vector2(1.5, 1.5)
-			metal_label.position.x -= 30
 		elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			zoom = Vector2.ONE * clamp(zoom.x + zoom_speed, min_zoom, max_zoom)
