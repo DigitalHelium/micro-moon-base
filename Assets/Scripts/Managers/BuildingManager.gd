@@ -40,3 +40,8 @@ func initResearchBuild() -> Building.BuildingClass:
 	
 	building.init_building_parts(mat)
 	return building
+
+func draw_building_to_map(title_map: TileMapLayer, base_pose: Vector2i, building: Building.BuildingClass):
+	for part in building.parts:
+		var place_pos = base_pose + part.point_position
+		title_map.set_cell(place_pos, part.get_building_title_id(), part.get_Atlas_coord())

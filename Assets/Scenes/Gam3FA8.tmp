@@ -1,66 +1,18 @@
-[gd_scene load_steps=21 format=4 uid="uid://bf3kmayt1neoq"]
+[gd_scene load_steps=22 format=4 uid="uid://bqb0ghwq0nru4"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Managers/ResourceSceneManager.gd" id="1_1nf3s"]
-[ext_resource type="Texture2D" uid="uid://b3jofj8yj2klr" path="res://Assets/Scenes/atlas.png" id="1_6vogn"]
-[ext_resource type="Script" path="res://Assets/Scripts/Map.gd" id="3_6yv6s"]
-[ext_resource type="Script" path="res://Assets/Scenes/Camera.gd" id="3_f1j7i"]
-[ext_resource type="Texture2D" uid="uid://cj8wh2gosffgu" path="res://Assets/Scenes/research_tilemap.png" id="3_qw7v2"]
-[ext_resource type="Texture2D" uid="uid://cb63gwp2d8ml6" path="res://metal.png" id="3_y468n"]
-[ext_resource type="Texture2D" uid="uid://bwda6w6su1ax" path="res://energi.png" id="4_p68tr"]
-[ext_resource type="Texture2D" uid="uid://bc83em6lfcm4t" path="res://poison.png" id="5_myffd"]
-
-[sub_resource type="GDScript" id="GDScript_ceill"]
-script/source = "class_name BuildingManager
-extends Node
-
-var builds: Dictionary = {}
-
-enum Type {
-	RESEARCH_LAB = 0,
-}
-
-func _ready() -> void:
-	pass
-	
-func get_building(base_pose: Vector2i) -> Building.BuildingClass:
-	return builds[base_pose]
-	
-func add_building(base_pose: Vector2i, build: Building.BuildingClass) -> void:
-	builds[base_pose] = build
-	print(builds)
-	
-func init_building(type_build: int) -> Building.BuildingClass:
-	return getInitBuilding(type_build)
-
-func getInitBuilding(type_build: int) -> Building.BuildingClass:
-	match type_build:
-		Type.RESEARCH_LAB: return initResearchBuild()
-		_: return null
-
-func initResearchBuild() -> Building.BuildingClass:
-	var bulding_cost = Building.BuildingCost.new(1,2,3)
-	var building = ResearchBuilding.ResearchBuildingClass.new(\"Research Center\", \"DESC\", bulding_cost)
-	
-	var rows = 2
-	var columns = 3
-	
-	var mat = Matrix.MatrixClass.new(rows, columns)
-	mat.set_value(0 , 0, BuildingPart.BuildingPartClass.Type.Research)
-	mat.set_value(1 , 0, BuildingPart.BuildingPartClass.Type.Path)
-	mat.set_value(1 , 1, BuildingPart.BuildingPartClass.Type.Path)
-	mat.set_value(1 , 2, BuildingPart.BuildingPartClass.Type.Research)
-	
-	building.init_building_parts(mat)
-	return building
-
-func draw_building_to_map(title_map: TileMapLayer, base_pose: Vector2i, building: Building.BuildingClass):
-	for part in building.parts:
-		var place_pos = base_pose + part.point_position
-		title_map.set_cell(place_pos, part.get_building_title_id(), part.get_Atlas_coord())
-"
+[ext_resource type="Script" path="res://Assets/Scripts/Managers/ResourceSceneManager.gd" id="1_oe3yo"]
+[ext_resource type="Script" path="res://Assets/Scripts/Managers/BuildingManager.gd" id="2_foo3i"]
+[ext_resource type="Texture2D" uid="uid://b3jofj8yj2klr" path="res://Assets/Scenes/atlas.png" id="3_rf6e3"]
+[ext_resource type="Texture2D" uid="uid://cj8wh2gosffgu" path="res://Assets/Scenes/research_tilemap.png" id="4_x63xx"]
+[ext_resource type="Script" path="res://Assets/Scripts/Map.gd" id="5_v4pq3"]
+[ext_resource type="Script" path="res://Assets/Scenes/Camera.gd" id="6_0dt5g"]
+[ext_resource type="Texture2D" uid="uid://bwda6w6su1ax" path="res://energi.png" id="7_37mkq"]
+[ext_resource type="Texture2D" uid="uid://bc83em6lfcm4t" path="res://poison.png" id="8_hq635"]
+[ext_resource type="Texture2D" uid="uid://cb63gwp2d8ml6" path="res://metal.png" id="9_nlqus"]
+[ext_resource type="PackedScene" uid="uid://bsyettj18sx5e" path="res://Assets/Scenes/Store/Store.tscn" id="10_3d0f8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqbgo"]
-texture = ExtResource("1_6vogn")
+texture = ExtResource("3_rf6e3")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -127,7 +79,7 @@ texture = ExtResource("1_6vogn")
 sources/0 = SubResource("TileSetAtlasSource_sqbgo")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s8nra"]
-texture = ExtResource("1_6vogn")
+texture = ExtResource("3_rf6e3")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -194,7 +146,7 @@ texture = ExtResource("1_6vogn")
 sources/0 = SubResource("TileSetAtlasSource_s8nra")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_buhvg"]
-texture = ExtResource("1_6vogn")
+texture = ExtResource("3_rf6e3")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -258,7 +210,7 @@ texture = ExtResource("1_6vogn")
 8:8/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mkahn"]
-texture = ExtResource("3_qw7v2")
+texture = ExtResource("4_x63xx")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -381,10 +333,10 @@ font_names = PackedStringArray("Bauhaus 93")
 [node name="Systems" type="Node" parent="."]
 
 [node name="ResourceManager" type="Node" parent="Systems"]
-script = ExtResource("1_1nf3s")
+script = ExtResource("1_oe3yo")
 
 [node name="BuildingManager" type="Node" parent="Systems"]
-script = SubResource("GDScript_ceill")
+script = ExtResource("2_foo3i")
 
 [node name="World" type="Node2D" parent="."]
 
@@ -399,13 +351,13 @@ tile_set = SubResource("TileSet_2rwpf")
 [node name="rock" type="TileMapLayer" parent="World"]
 unique_name_in_owner = true
 tile_set = SubResource("TileSet_hacqa")
-script = ExtResource("3_6yv6s")
+script = ExtResource("5_v4pq3")
 
 [node name="Camera2D" type="Camera2D" parent="World"]
 position = Vector2(260, 127)
 zoom = Vector2(1.5, 1.5)
 process_callback = 0
-script = ExtResource("3_f1j7i")
+script = ExtResource("6_0dt5g")
 
 [node name="EnergyResource" type="Label" parent="World/Camera2D"]
 unique_name_in_owner = true
@@ -419,7 +371,7 @@ horizontal_alignment = 1
 
 [node name="Energi" type="Sprite2D" parent="World/Camera2D/EnergyResource"]
 position = Vector2(12, -14)
-texture = ExtResource("4_p68tr")
+texture = ExtResource("7_37mkq")
 
 [node name="ScienceResource" type="Label" parent="World/Camera2D"]
 unique_name_in_owner = true
@@ -433,7 +385,7 @@ horizontal_alignment = 1
 
 [node name="Poison" type="Sprite2D" parent="World/Camera2D/ScienceResource"]
 position = Vector2(14, -13)
-texture = ExtResource("5_myffd")
+texture = ExtResource("8_hq635")
 region_rect = Rect2(100, 100, 100, 100)
 
 [node name="MetalResource" type="Label" parent="World/Camera2D"]
@@ -449,4 +401,6 @@ horizontal_alignment = 1
 
 [node name="Metal" type="Sprite2D" parent="World/Camera2D/MetalResource"]
 position = Vector2(14, -14)
-texture = ExtResource("3_y468n")
+texture = ExtResource("9_nlqus")
+
+[node name="Store" parent="." instance=ExtResource("10_3d0f8")]
