@@ -1,7 +1,7 @@
 
-class_name Tile 
+class_name Tile
 
-class TileClass extends Node2D:
+class TileClass extends Node:
 	enum Effect {Elctric, Wall, Fog}
 	enum Type {Pit, Crystal, Taken, Empty, Unavailable}
 

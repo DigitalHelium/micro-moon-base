@@ -1,3 +1,4 @@
+class_name ResourceManager
 extends Node
 
 var resource: Dictionary = {}

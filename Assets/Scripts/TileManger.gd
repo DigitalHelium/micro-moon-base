@@ -1,10 +1,9 @@
 
-class_name TileManger extends Node2D
+class_name TileManger extends Node
 
 const Tile = preload("res://Assets/Scripts/tile.gd").TileClass
 const building_script = preload("res://Assets/Scripts/Building.gd")
 const Building = building_script.BuildingClass
-const Point = building_script.PointClass
 
 
 # Словарь где ключи - координаты Vector2, а значение - объект типа Tile
@@ -26,6 +25,8 @@ func update_tile_type(tile_position: Vector2, type: int) -> void:
 
 
 func can_place_object(position: Vector2, building: Building) -> bool:
+	
+	
 	
 	for enter_position in building.tile_enter_position:
 		if !tiles[enter_position].effects.has(Tile.Effect.Elctric):

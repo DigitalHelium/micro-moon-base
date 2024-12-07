@@ -1,11 +1,12 @@
 
 class_name Building
 
-class BuildingClass extends Node2D:
+class BuildingClass extends Node:
 	const BuildingPart = preload("res://Assets/Scripts/BuildingPart.gd").BuildingPartClass
 	
 	enum Type {Base, Module, Observatory, Research, Drill}
-	var tile_positions: Array[BuildingPart]
+	#: Array[BuildingPart]
+	var parts: Array = []
 	
 	var building_name: String = ""
 	var description: String = ""
@@ -35,6 +36,23 @@ class BuildingClass extends Node2D:
 		
 		construction_complites.emit()
 		return true
+		
+	#инициализирует Building множеством BuildingPart. На вход подается матрица (карта) координат в локальных координатах matrix[i][j] Array[Array[Type]]
+	func init_building_parts(building_matrix: Matrix.MatrixClass) -> void:
+		for i in building_matrix.get_rows():
+			for j in building_matrix.get_columns():
+				var value = building_matrix.get_value(i, j)
+				#Спрашивает у подкласса какой это тип BuildingPart
+				var current_part = init_part_class(value)
+					
+				if current_part != null:
+					current_part.point_position = Vector2i(i, j)
+					current_part.parent_building = self
+					parts.append(current_part)
+		pass
+	
+	func init_part_class(type: int) -> BuildingPart.BuildingPartClass:
+		return null
 	
 class BuildingCost:
 	var metal: int = 0

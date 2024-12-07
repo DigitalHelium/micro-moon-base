@@ -1,10 +1,9 @@
 class_name BuildingPart
 
-class BuildingPartClass extends Node2D:
+class BuildingPartClass extends Node:
 	enum Type {Research, Dynamite, Path, Enterance, PowerTower, Solar, Destroyer}
-	const Tile = preload("res://Assets/Scripts/tile.gd").TileClass
 	var point_position: Vector2i
-	var parent_building: Building
+	var parent_building: Building.BuildingClass
 	var is_occupied: bool = false
 	
 	const INVALID_TERRAIN_TYPES = {}
@@ -21,14 +20,23 @@ class BuildingPartClass extends Node2D:
 			if building.has_part_at_position(point):
 				return false
 				
-		if !check_placement_requirements(point):
-			return false
+		#if !check_placement_requirements(point):
+		#	return false
 			 
 		return true
 
 # Вспомогательный метод потом если надо
-	func check_placement_requirements(point: Vector2i) -> bool:
-		return true
+	func check_placement_requirements(tile: Tile.TileClass) -> bool:
+		return false
 		
 	func set_occupird(occ: bool) -> void:
 		is_occupied = occ
+
+
+
+	# Наследование жопы
+	func is_point_placeable_ext(tile: Tile.TileClass) -> bool:	 
+		return false
+	
+	func do_when_placed() -> void:
+		pass
