@@ -107,6 +107,23 @@ func initResearchCenter2WithExBuild() -> Building.BuildingClass:
 	building.init_building_parts(mat)
 	return building
 		
+func draw_building_to_store(title_map: TileMapLayer, base_pose: Vector2i, building: Building.BuildingClass, error_display_map: TileMapLayer, tile_manager: TileManger):
+	var w = 0
+	var h = 0
+	for part in building.parts:
+		var newW = part.point_position.x
+		var newH = part.point_position.y
+		print(newH,newH)
+		if((newW>=w)&&(newH>=h)):
+			w = newW
+			h = newH
+	base_pose.x = 0 - w/2-1
+	base_pose.y = 0 - h/2-1
+	print(base_pose)
+	for part in building.parts:
+		var place_pos = base_pose + part.point_position
+		title_map.set_cell(place_pos, part.get_building_title_id(), part.get_Atlas_coord())
+
 
 func draw_building_to_map(title_map: TileMapLayer, base_pose: Vector2i, building: Building.BuildingClass, error_display_map: TileMapLayer, tile_manager: TileManger):
 	for part in building.parts:
