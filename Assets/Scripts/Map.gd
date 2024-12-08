@@ -35,7 +35,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var mouse_pos = get_global_mouse_position()
 		var title_pos = title_map.local_to_map(mouse_pos)
 		place_building(title_pos)
-		print("click", title_pos)
+		#print("click", title_pos)
 	if Input.is_action_just_pressed("right_click"):
 		building_manager.set_select_building(null);
 	pass
@@ -58,6 +58,8 @@ func place_building(base_pose: Vector2i):
 		building_manager.draw_building_to_map(title_map, base_pose, building, null, null, null)
 		building_manager.add_building(base_pose, building, resource_manager.get_resources())
 		update_energi_layer()
+	
+	print(tile_manager.is_goal_powered())
 		
 func update_building_preview():
 	var mouse_pos = get_global_mouse_position()

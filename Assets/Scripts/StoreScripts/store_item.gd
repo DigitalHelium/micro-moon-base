@@ -39,9 +39,9 @@ func _get_drag_data(position):
 func _on_pressed() -> void:
 	if (build == null):
 		return;
-	print("press to " + build.building_name)
-	print(building_manager)
-	print(self.building_manager)
+	#print("press to " + build.building_name)
+	#print(building_manager)
+	#print(self.building_manager)
 	self.building_manager.set_select_building(build);
 	pass
 	
