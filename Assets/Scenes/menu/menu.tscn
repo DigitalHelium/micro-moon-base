@@ -109,7 +109,7 @@ theme_type_variation = &"FlatButton"
 theme_override_colors/font_hover_color = Color(0, 0, 0, 0.45098)
 theme_override_fonts/font = ExtResource("6_ui614")
 theme_override_font_sizes/font_size = 50
-text = "Старт"
+text = "Играть"
 
 [node name="QuitButton" type="Button" parent="Menu_button"]
 layout_mode = 2
