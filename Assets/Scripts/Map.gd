@@ -47,10 +47,12 @@ func _process(delta: float) -> void:
 
 func place_building(base_pose: Vector2i):
 	var building = building_manager.get_select_building()
+	if building == null:
+		return
 	var can_place = tile_manager.can_place_object(base_pose, building)
 	var has_resources = resource_manager.has_resource(building.cost)
 	print(can_place)
-	if building and can_place and has_resources:
+	if can_place and has_resources:
 		tile_manager.place_object(base_pose, building)
 		building.do_when_placed(base_pose, tile_manager, resource_manager)
 		building_manager.draw_building_to_map(title_map, base_pose, building, null, null, null)
