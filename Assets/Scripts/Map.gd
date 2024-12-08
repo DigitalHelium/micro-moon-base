@@ -44,6 +44,7 @@ func place_building(base_pose: Vector2i, type_build: int):
 	print(can_place)
 	if can_place and has_resources:
 		tile_manager.place_object(base_pose, building)
+		building.do_when_placed(base_pose, tile_manager, resource_manager)
 		building_manager.draw_building_to_map(title_map, base_pose, building, null, null)
 		building_manager.add_building(base_pose, building, resource_manager.get_resources())
 		
