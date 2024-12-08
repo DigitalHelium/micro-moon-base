@@ -71,12 +71,13 @@ func remove_tile_effect(tile_position: Vector2i, effect: Tile.TileClass.Effect) 
 		tiles[tile_position].effects.erase(effect)	
 
 func can_place_object(position: Vector2i, building: Building.BuildingClass) -> bool:
-	var requirement = false
+	var requirement = 0
 	for part in building.parts:
 		if !is_tile_placeable(position + part.point_position):
 			return false
-		requirement = part.check_placement_requirements(tiles[position + part.point_position])
-	if !requirement:
+		if(part.check_placement_requirements(tiles[position + part.point_position])):
+			requirement += 1
+	if requirement == 0:
 		return false
 	for part in building.parts:
 		if !part.is_point_placeable_ext(tiles[position + part.point_position]):
