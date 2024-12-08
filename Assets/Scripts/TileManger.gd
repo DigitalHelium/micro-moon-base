@@ -7,15 +7,22 @@ var tiles: Dictionary = {}
 
 
 
-func _init(height: int, width: int):
-	for i in height:
-		for j in width:
+func _init(startI:int, startJ:int, height: int, width: int, tile_map: TileMapLayer):
+	for i in range(startI, startI+height, 1):
+		for j in range(startJ, startJ+width, 1):
 			var coordinates = Vector2i(i,j)
+			var tile_data = tile_map.get_cell_tile_data(coordinates)
 			var current_tile
-			if i == 1 and j == 3:
-				current_tile = Tile.TileClass.new(Tile.TileClass.Type.Crystal, [Tile.TileClass.Effect.Elctric])
+			
+			if tile_data != null:
+				var type = tile_data.get_custom_data("Type")
+				var effect = tile_data.get_custom_data("Effects")
+				current_tile = Tile.TileClass.new(type, [effect])
+				#tile_data.get_custom_data("Type")
+				#tile_data.get_custom_data("Effects")
 			else:
 				current_tile = Tile.TileClass.new(Tile.TileClass.Type.Basic, [Tile.TileClass.Effect.Elctric])
+			
 			tiles[coordinates] = current_tile
 	
 	
@@ -25,7 +32,8 @@ func is_tile_exist(tile_position: Vector2i) -> bool:
 
 func is_tile_placeable(tile_position: Vector2i) -> bool:
 	if is_tile_exist(tile_position):
-		return tiles[tile_position].type == Tile.TileClass.Type.Basic
+		return tiles[tile_position].type == Tile.TileClass.Type.Basic and \
+		!tiles[tile_position].effects.has(Tile.TileClass.Effect.Wall)
 	return false
 	
 	

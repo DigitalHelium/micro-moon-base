@@ -20,7 +20,7 @@ var select_building_type = 0
 func _ready() -> void:
 	building_mode = true
 	resource_manager = resource_manager_scene.resource_manager
-	tile_manager = TileManger.new(15,10)
+	tile_manager = TileManger.new(-10,-10,50,40, title_map)
 	building_manager = BuildingManager.new()
 	#$".".pressed.connection(self.updType($".".building_manager))
 	pass
@@ -31,7 +31,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		var mouse_pos = get_global_mouse_position()
 		var title_pos = title_map.local_to_map(mouse_pos)
 		place_building(title_pos, select_building_type)
-		print("click", title_pos)
+		
+		#print("click", title_pos)
 	pass
 	
 func _process(delta: float) -> void:
@@ -43,7 +44,7 @@ func place_building(base_pose: Vector2i, type_build: int):
 	var building = building_manager.init_building(type_build)
 	var can_place = tile_manager.can_place_object(base_pose, building)
 	var has_resources = resource_manager.has_resource(building.cost)
-	print(can_place)
+	#print(can_place)
 	if can_place and has_resources:
 		tile_manager.place_object(base_pose, building)
 		building.do_when_placed(base_pose, tile_manager, resource_manager)
