@@ -2,7 +2,7 @@ class_name BuildingManager
 extends Node
 
 var builds: Dictionary = {}
-
+var select_building: Building.BuildingClass = null; 
 enum Type {
 	RESEARCH_LAB = 0,
 	RESEARCH_P_LAB = 1,
@@ -20,6 +20,12 @@ func add_building(base_pose: Vector2i, build: Building.BuildingClass, resource: 
 	build.construct(resource)
 	builds[base_pose] = build
 	print(builds)
+	
+func set_select_building(build: Building.BuildingClass):
+	select_building = build;
+
+func get_select_building() -> Building.BuildingClass:
+	return select_building
 	
 func init_building(type_build: int) -> Building.BuildingClass:
 	return getInitBuilding(type_build)
@@ -125,12 +131,17 @@ func draw_building_to_store(title_map: TileMapLayer, base_pose: Vector2i, buildi
 		title_map.set_cell(place_pos, part.get_building_title_id(), part.get_Atlas_coord())
 
 
-func draw_building_to_map(title_map: TileMapLayer, base_pose: Vector2i, building: Building.BuildingClass, error_display_map: TileMapLayer, tile_manager: TileManger):
+func draw_building_to_map(title_map: TileMapLayer, base_pose: Vector2i, building: Building.BuildingClass, error_display_map: TileMapLayer, tile_manager: TileManger,  resource_manager: ResourceManager):
+	if (building == null):
+		return;
+	var has_resources = null;
+	if (resource_manager):
+		has_resources = resource_manager.has_resource(building.cost);
 	for part in building.parts:
 		var place_pos = base_pose + part.point_position
 		title_map.set_cell(place_pos, part.get_building_title_id(), part.get_Atlas_coord())
 		if (error_display_map != null && tile_manager != null):
-			if(tile_manager.can_place_part(part, base_pose)):
+			if(tile_manager.can_place_part(part, base_pose) && has_resources):
 				error_display_map.set_cell(place_pos, 0, Vector2i(1, 0))
 			else:
 				error_display_map.set_cell(place_pos, 0, Vector2i(0, 0))

@@ -6,7 +6,7 @@ var store_builds: Dictionary = {}
 @onready var builds_container = $Control/PanelContainer/HBoxContainer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	building_manager = BuildingManager.new()
+	print(building_manager)
 	print(building_manager.Type)
 	for build_item in building_manager.Type:
 		print(building_manager.Type[build_item])
@@ -17,6 +17,8 @@ func _ready() -> void:
 		
 	pass # Replace with function body.
 
+func set_building_manager(building_manager: BuildingManager):
+	self.building_manager = building_manager
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
