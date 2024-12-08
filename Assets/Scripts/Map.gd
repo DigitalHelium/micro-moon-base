@@ -20,7 +20,7 @@ var select_building_type = 0
 func _ready() -> void:
 	building_mode = true
 	resource_manager = resource_manager_scene.resource_manager
-	tile_manager = TileManger.new(15,10)
+	tile_manager = TileManger.new(-10,-10,50,40, title_map)
 	building_manager = BuildingManager.new()
 	print(building_manager)
 	$"../../Store".set_building_manager(building_manager)
@@ -50,6 +50,7 @@ func place_building(base_pose: Vector2i):
 	print(can_place)
 	if building and can_place and has_resources:
 		tile_manager.place_object(base_pose, building)
+		building.do_when_placed(base_pose, tile_manager, resource_manager)
 		building_manager.draw_building_to_map(title_map, base_pose, building, null, null, null)
 		building_manager.add_building(base_pose, building, resource_manager.get_resources())
 		
