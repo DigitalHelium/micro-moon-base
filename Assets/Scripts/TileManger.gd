@@ -5,7 +5,7 @@ class_name TileManger extends Node
 # Словарь где ключи - координаты Vector2, а значение - объект типа Tile
 var tiles: Dictionary = {} 
 
-
+var end_tile: Tile.TileClass
 
 func _init(startI:int, startJ:int, height: int, width: int, tile_map: TileMapLayer):
 	for i in range(startI, height, 1):
@@ -21,9 +21,10 @@ func _init(startI:int, startJ:int, height: int, width: int, tile_map: TileMapLay
 				effects.append(effect)
 				
 				# Посмотреть тайлы вокруг, если есть база, то сделать электричество
-
-						
 				current_tile = Tile.TileClass.new(type, effects)
+				
+				if type == Tile.TileClass.Type.Goal:
+					end_tile = current_tile
 				#tile_data.get_custom_data("Type")
 				#tile_data.get_custom_data("Effects")
 			else:
@@ -103,3 +104,7 @@ func remove_object(position: Vector2i, building: Building.BuildingClass) -> void
 	for part in building.parts:
 		remove_tile_effect(position + part.point_position, Tile.TileClass.Effect.Taken)
 	pass
+	
+
+func is_goal_powered() -> bool:
+	return end_tile != null and end_tile.effects.has(Tile.TileClass.Effect.Elctric)

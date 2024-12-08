@@ -193,7 +193,11 @@ func draw_building_to_map(title_map: TileMapLayer, base_pose: Vector2i, building
 		var place_pos = base_pose + part.point_position
 		title_map.set_cell(place_pos, part.get_building_title_id(), part.get_Atlas_coord())
 		if (error_display_map != null && tile_manager != null):
-			if(tile_manager.can_place_part(part, base_pose) && has_resources):
+			if (!has_resources):
+				error_display_map.set_cell(place_pos, 0, Vector2i(0, 0))
+			elif (tile_manager.can_place_object(base_pose, building)):
+				error_display_map.set_cell(place_pos, 0, Vector2i(1, 0))
+			elif(tile_manager.can_place_part(part, base_pose)):
 				error_display_map.set_cell(place_pos, 0, Vector2i(1, 0))
 			else:
 				error_display_map.set_cell(place_pos, 0, Vector2i(0, 0))
