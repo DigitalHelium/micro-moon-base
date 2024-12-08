@@ -1,9 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyeac0xttd2jt"]
+[gd_scene load_steps=12 format=3 uid="uid://cyeac0xttd2jt"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/StoreScripts/store_item.gd" id="1_fggpc"]
 [ext_resource type="Texture2D" uid="uid://bwda6w6su1ax" path="res://Assets/Textures/energi.png" id="1_iwueu"]
 [ext_resource type="Texture2D" uid="uid://b3jofj8yj2klr" path="res://Assets/Scenes/atlas.png" id="3_ripgh"]
 [ext_resource type="Texture2D" uid="uid://cj8wh2gosffgu" path="res://Assets/Scenes/research_tilemap.png" id="4_og0an"]
+[ext_resource type="Texture2D" uid="uid://cb63gwp2d8ml6" path="res://Assets/Textures/metal.png" id="5_48hgn"]
+[ext_resource type="Texture2D" uid="uid://bc83em6lfcm4t" path="res://Assets/Textures/poison.png" id="6_dbfcr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8k4c"]
+bg_color = Color(0, 0.0705882, 0.2, 0.745098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lw2kg"]
+bg_color = Color(0, 0.0705882, 0.894118, 0.156863)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nfa3x"]
 texture = ExtResource("3_ripgh")
@@ -97,15 +105,102 @@ sources/0 = SubResource("TileSetAtlasSource_nfa3x")
 sources/1 = SubResource("TileSetAtlasSource_tqv6p")
 
 [node name="StoreItem" type="Button"]
-offset_right = 89.0
-offset_bottom = 109.0
-text = "sdsdsdsad"
+custom_minimum_size = Vector2(160, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = 38.0
+offset_right = 62.0
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/hover = SubResource("StyleBoxFlat_e8k4c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lw2kg")
 script = ExtResource("1_fggpc")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-texture = ExtResource("1_iwueu")
-
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(0, -82)
+position = Vector2(10, -20)
+scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_cdf65")
+
+[node name="VFlowContainer" type="VFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.175
+anchor_top = 0.630909
+anchor_right = 0.825
+anchor_bottom = 0.776364
+grow_horizontal = 2
+grow_vertical = 2
+last_wrap_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="metal" type="TextureRect" parent="VFlowContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("5_48hgn")
+metadata/_edit_use_anchors_ = true
+
+[node name="cost_metal" type="Label" parent="VFlowContainer/metal"]
+unique_name_in_owner = true
+offset_left = 4.0
+offset_top = 32.0
+offset_right = 30.0
+offset_bottom = 55.0
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="enerji" type="TextureRect" parent="VFlowContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_iwueu")
+metadata/_edit_use_anchors_ = true
+
+[node name="cost_energy" type="Label" parent="VFlowContainer/enerji"]
+unique_name_in_owner = true
+offset_left = 4.0
+offset_top = 32.0
+offset_right = 30.0
+offset_bottom = 55.0
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="poison" type="TextureRect" parent="VFlowContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("6_dbfcr")
+metadata/_edit_use_anchors_ = true
+
+[node name="cost_poison" type="Label" parent="VFlowContainer/poison"]
+unique_name_in_owner = true
+offset_left = 4.0
+offset_top = 32.0
+offset_right = 30.0
+offset_bottom = 55.0
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -23.0
+offset_right = 22.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+text = "name"
+horizontal_alignment = 1
+vertical_alignment = 2

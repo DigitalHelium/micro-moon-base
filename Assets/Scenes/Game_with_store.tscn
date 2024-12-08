@@ -489,6 +489,7 @@ offset_right = -396.333
 offset_bottom = 41.3333
 grow_horizontal = 0
 theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_color = Color(1, 1, 1, 0.372549)
 theme_override_fonts/font = ExtResource("8_wk8u0")
 text = "X"
 script = ExtResource("9_pymwg")
@@ -542,5 +543,7 @@ position = Vector2(14, -14)
 texture = ExtResource("9_nlqus")
 
 [node name="Store" parent="." instance=ExtResource("10_3d0f8")]
+offset = Vector2(0, -10)
+transform = Transform2D(1, 0, 0, 1, 0, -10)
 
 [connection signal="pressed" from="World/Camera2D/Container/Button" to="World/Camera2D/Container/Button" method="_on_pressed"]
