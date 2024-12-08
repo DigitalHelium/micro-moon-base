@@ -9,6 +9,9 @@ class BuildingPartClass extends Node:
 	var building_title_id = 1
 	
 	const INVALID_TERRAIN_TYPES = {}
+
+	func _init(atlas_coord_value: Vector2i) -> void:
+		atlas_coord = atlas_coord_value
 	
 	func is_point_placeable(point: Vector2i, terrain_map: TileMap) -> bool:
 		if is_occupied:

@@ -5,6 +5,7 @@ var builds: Dictionary = {}
 
 enum Type {
 	RESEARCH_LAB = 0,
+	RESEARCH_Z_LAB = 1,
 }
 
 func _ready() -> void:
@@ -24,6 +25,7 @@ func init_building(type_build: int) -> Building.BuildingClass:
 func getInitBuilding(type_build: int) -> Building.BuildingClass:
 	match type_build:
 		Type.RESEARCH_LAB: return initResearchBuild()
+		Type.RESEARCH_Z_LAB: return initResearchZBuild()
 		_: return null
 
 func initResearchBuild() -> Building.BuildingClass:
@@ -34,13 +36,31 @@ func initResearchBuild() -> Building.BuildingClass:
 	var columns = 3
 	
 	var mat = Matrix.MatrixClass.new(rows, columns)
-	mat.set_value(0 , 0, BuildingPart.BuildingPartClass.Type.Research)
-	mat.set_value(1 , 0, BuildingPart.BuildingPartClass.Type.Path)
-	mat.set_value(1 , 1, BuildingPart.BuildingPartClass.Type.Path)
-	mat.set_value(1 , 2, BuildingPart.BuildingPartClass.Type.Research)
+	mat.set_value(0 , 0, {type = BuildingPart.BuildingPartClass.Type.Research, atlas = Vector2i(1, 3) })
+	mat.set_value(1 , 0, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(3, 0) })
+	mat.set_value(1 , 1, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(0, 1) })
+	mat.set_value(1 , 2, {type = BuildingPart.BuildingPartClass.Type.Research, atlas = Vector2i(0, 1) })
 	
 	building.init_building_parts(mat)
 	return building
+	
+func initResearchZBuild() -> Building.BuildingClass:
+	var bulding_cost = Building.BuildingCost.new(1,2,3)
+	var building = ResearchBuilding.ResearchBuildingClass.new("Research Center With Enternal", "DESC", bulding_cost)
+	
+	var rows = 4
+	var columns = 2
+	
+	var mat = Matrix.MatrixClass.new(rows, columns)
+	mat.set_value(0 , 0, {type = BuildingPart.BuildingPartClass.Type.Research, atlas = Vector2i(1, 3) })
+	mat.set_value(1 , 0, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(3, 3) })
+	mat.set_value(2 , 0, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(3, 0) })
+	mat.set_value(2 , 1, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(1, 2) })
+	mat.set_value(3 , 1, {type = BuildingPart.BuildingPartClass.Type.Enterance, atlas = Vector2i(4, 0) })
+	
+	building.init_building_parts(mat)
+	return building
+
 
 func draw_building_to_map(title_map: TileMapLayer, base_pose: Vector2i, building: Building.BuildingClass, error_display_map: TileMapLayer, tile_manager: TileManger):
 	for part in building.parts:

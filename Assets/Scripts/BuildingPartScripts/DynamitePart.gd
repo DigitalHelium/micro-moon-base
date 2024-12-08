@@ -1,7 +1,6 @@
 class_name DynamitePart
 
 class DynamitePartClass extends BuildingPart.BuildingPartClass:
-	var atlas_coord_enterance_path = Vector2i(3,3)
 	var building_title_id_enterance_path = 1
 
 	func is_point_placeable_ext(tile: Tile.TileClass) -> bool:	
@@ -20,12 +19,6 @@ class DynamitePartClass extends BuildingPart.BuildingPartClass:
 				if (i >= -1 and i <= 1) and (j >= -1 and j <= 1):
 					tile_manager.add_tile_effect(current_position, Tile.TileClass.Effect.Elctric)
 	pass
-	
-	func get_Atlas_coord() -> Vector2i:
-		return atlas_coord_enterance_path
-		
-	func set_Atlas_coord(coords: Vector2i) -> void:
-		atlas_coord_enterance_path = coords	
 	
 	func get_building_title_id() -> int:
 		return building_title_id_enterance_path
