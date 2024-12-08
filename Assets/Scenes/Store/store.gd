@@ -28,11 +28,11 @@ func update_store_catalog():
 	for child in builds_container.get_children():
 		builds_container.remove_child(child)
 	for build_item in building_manager.Type:
-		if (selected_tab == 0 && [0, 1].has(building_manager.Type[build_item])):
+		if (selected_tab == 0 && [0, 1, 2, 3].has(building_manager.Type[build_item])):
 			add_store_item(building_manager.Type[build_item])
-		elif (selected_tab == 1 && [2].has(building_manager.Type[build_item])):
+		elif (selected_tab == 1 && [4].has(building_manager.Type[build_item])):
 			add_store_item(building_manager.Type[build_item])
-		elif (selected_tab == 2 && [3].has(building_manager.Type[build_item])):
+		elif (selected_tab == 2 && [4].has(building_manager.Type[build_item])):
 			add_store_item(building_manager.Type[build_item])
 		
 func add_store_item(item_type: int):

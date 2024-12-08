@@ -8,6 +8,7 @@ enum Type {
 	RESEARCH_P_LAB = 1,
 	RESEARCH_2_LAB = 2,
 	RESEARCH_2_EX_LAB = 3,
+	POWER_TOWER = 4,
 }
 
 func _ready() -> void:
@@ -36,6 +37,7 @@ func getInitBuilding(type_build: int) -> Building.BuildingClass:
 		Type.RESEARCH_P_LAB: return initResearchCenterPBuild()
 		Type.RESEARCH_2_LAB: return initResearchCenter2Build()
 		Type.RESEARCH_2_EX_LAB: return initResearchCenter2WithExBuild()
+		Type.POWER_TOWER: return initPowerTowerBuild()
 		_: return null
 	
 func initResearchBuild() -> Building.BuildingClass:
@@ -50,7 +52,7 @@ func initResearchBuild() -> Building.BuildingClass:
 	mat.set_value(1 , 0, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(3, 3) })
 	mat.set_value(2 , 0, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(3, 0) })
 	mat.set_value(2 , 1, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(1, 2) })
-	mat.set_value(3 , 1, {type = BuildingPart.BuildingPartClass.Type.Enterance, atlas = Vector2i(4, 0) })
+	mat.set_value(3 , 1, {type = BuildingPart.BuildingPartClass.Type.Enterance, atlas = Vector2i(3, 4) })
 	
 	building.init_building_parts(mat)
 	return building
@@ -63,7 +65,7 @@ func initResearchCenterPBuild() -> Building.BuildingClass:
 	var columns = 2
 	
 	var mat = Matrix.MatrixClass.new(rows, columns)
-	mat.set_value(0 , 1, {type = BuildingPart.BuildingPartClass.Type.Enterance, atlas = Vector2i(4, 1) })
+	mat.set_value(0 , 1, {type = BuildingPart.BuildingPartClass.Type.Enterance, atlas = Vector2i(3, 5) })
 	mat.set_value(0 , 0, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(1, 0) })
 	mat.set_value(1 , 0, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(3, 3) })
 	mat.set_value(2 , 0, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(3, 0) })
@@ -108,7 +110,22 @@ func initResearchCenter2WithExBuild() -> Building.BuildingClass:
 	mat.set_value(3 , 1, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(2, 0) })
 	mat.set_value(4 , 1, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(3, 2) })
 	mat.set_value(4 , 0, {type = BuildingPart.BuildingPartClass.Type.Research, atlas = Vector2i(0, 0) })
-	mat.set_value(3 , 2, {type = BuildingPart.BuildingPartClass.Type.Enterance, atlas = Vector2i(4, 1) })
+	mat.set_value(3 , 2, {type = BuildingPart.BuildingPartClass.Type.Enterance, atlas = Vector2i(3, 5) })
+	
+	building.init_building_parts(mat)
+	return building
+	
+func initPowerTowerBuild() -> Building.BuildingClass:
+	var bulding_cost = Building.BuildingCost.new(3,0,4)
+	var building = ElectricBuilding.ElectricBuildingClass.new("Power Tower", "DESC", bulding_cost)
+	
+	var rows = 4
+	var columns = 4
+	
+	var mat = Matrix.MatrixClass.new(rows, columns)
+	mat.set_value(0 , 0, {type = BuildingPart.BuildingPartClass.Type.PowerTower, atlas = Vector2i(5, 3) })
+	mat.set_value(1 , 3, {type = BuildingPart.BuildingPartClass.Type.PowerTower, atlas = Vector2i(5, 3) })
+	mat.set_value(3 , 2, {type = BuildingPart.BuildingPartClass.Type.PowerTower, atlas = Vector2i(5, 3) })
 	
 	building.init_building_parts(mat)
 	return building

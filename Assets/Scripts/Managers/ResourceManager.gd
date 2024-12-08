@@ -11,7 +11,7 @@ func _ready() -> void:
 func init_resources():
 	resource[GameResource.ResourceClass.Type.Metal] = GameResource.ResourceClass.new(
 		GameResource.ResourceClass.Type.Metal,
-		2,
+		4,
 		100
 	)
 	resource[GameResource.ResourceClass.Type.Energy] = GameResource.ResourceClass.new(

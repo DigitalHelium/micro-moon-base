@@ -13,15 +13,26 @@ func _init(startI:int, startJ:int, height: int, width: int, tile_map: TileMapLay
 			var coordinates = Vector2i(i,j)
 			var tile_data = tile_map.get_cell_tile_data(coordinates)
 			var current_tile
+			var effects = []
 			
 			if tile_data != null:
 				var type = tile_data.get_custom_data("Type")
 				var effect = tile_data.get_custom_data("Effects")
-				current_tile = Tile.TileClass.new(type, [effect])
+				effects.append(effect)
+				
+				# Посмотреть тайлы вокруг, если есть база, то сделать электричество
+
+						
+				current_tile = Tile.TileClass.new(type, effects)
 				#tile_data.get_custom_data("Type")
 				#tile_data.get_custom_data("Effects")
 			else:
-				current_tile = Tile.TileClass.new(Tile.TileClass.Type.Basic, [Tile.TileClass.Effect.Elctric])
+				var neighbor_tiles = tile_map.get_surrounding_cells(coordinates)
+				for neighbor_coord in neighbor_tiles:
+					var neighbor_tile = tile_map.get_cell_tile_data(neighbor_coord)
+					if neighbor_tile != null and neighbor_tile.get_custom_data("Type") == Tile.TileClass.Type.Base:
+						effects.append(Tile.TileClass.Effect.Elctric)
+				current_tile = Tile.TileClass.new(Tile.TileClass.Type.Basic, effects)
 			
 			tiles[coordinates] = current_tile
 	

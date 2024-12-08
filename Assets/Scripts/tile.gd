@@ -3,12 +3,12 @@ class_name Tile
 
 class TileClass extends Node:
 	enum Effect {Elctric, Wall, Fog, Taken}
-	enum Type {Basic, Pit, Crystal, Unavailable}
+	enum Type {Basic, Pit, Crystal, Unavailable, Base, Goal}
 
 	var type: Type
 	var effects: Array[Effect]
 	
-	func _init(type: int, effects: Array[int]):
+	func _init(type: int, effects: Array):
 		self.type = type
 		self.effects = []
 		for i in effects.size():
