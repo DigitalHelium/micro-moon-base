@@ -17,16 +17,16 @@ class MatrixClass extends Node:
 			mat[i] = []
 			for j in columns:
 				mat[i].append([])
-				mat[i][j] = -1
+				mat[i][j] = {}
 	
-	func set_value(row: int, column: int, value: int) -> void:
+	func set_value(row: int, column: int, value: Dictionary) -> void:
 		mat[row][column] = value
 		pass
 		
-	func get_value(row: int, column: int) -> int:
+	func get_value(row: int, column: int) -> Dictionary:
 		if row >= 0 and row < rows and column >= 0 and column < columns:
 			return mat[row][column]
-		return -1
+		return {}
 		
 	func get_rows() -> int:
 		return rows

@@ -2,7 +2,7 @@
 class_name Building
 
 class BuildingClass extends Node:
-	const BuildingPart = preload("res://Assets/Scripts/BuildingPart.gd").BuildingPartClass
+	const BuildingPart = preload("res://Assets/Scripts/BuildingPartScripts/BuildingPart.gd").BuildingPartClass
 	
 	enum Type {Base, Module, Observatory, Research, Drill}
 	#: Array[BuildingPart]
@@ -41,7 +41,7 @@ class BuildingClass extends Node:
 					parts.append(current_part)
 		pass
 	
-	func init_part_class(type: int) -> BuildingPart.BuildingPartClass:
+	func init_part_class(settings: Dictionary) -> BuildingPart.BuildingPartClass:
 		return null
 		
 	func do_when_placed(position: Vector2i, tile_manager: TileManger, resource_manager: ResourceManager) -> void:

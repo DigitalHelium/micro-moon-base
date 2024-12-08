@@ -13,7 +13,8 @@ var building_mode = false
 var resource_manager: ResourceManager
 var tile_manager: TileManger
 var building_manager: BuildingManager
-var select_building_type = 0
+var select_building_type = 0  
+#building_manager.type
 
 
 func _ready() -> void:
@@ -21,6 +22,7 @@ func _ready() -> void:
 	resource_manager = resource_manager_scene.resource_manager
 	tile_manager = TileManger.new(15,10)
 	building_manager = BuildingManager.new()
+	#$".".pressed.connection(self.updType($".".building_manager))
 	pass
 	
 	
@@ -62,3 +64,9 @@ func remove_building():
 	#tile_manager.remove_object(base_pose, building)
 	#title_map.erase_cell(place_pos)
 	pass
+	
+func updType(type):
+	#select_building_type = type
+	print('connection')
+	
+	
