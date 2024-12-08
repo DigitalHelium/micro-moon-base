@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bskwi8if0b4ai"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/win.gd" id="1_brx57"]
+[ext_resource type="Texture2D" uid="uid://dy75267retb6d" path="res://Assets/Textures/2824536.png" id="1_s8rwd"]
+[ext_resource type="FontFile" uid="uid://ci540ool1sidk" path="res://Assets/Fonts/pixel-anchor-jack_0.ttf" id="4_nntig"]
+[ext_resource type="FontFile" uid="uid://ceo4mc4vdaot8" path="res://Assets/Fonts/PixeloidMono.ttf" id="5_c13gr"]
+
+[sub_resource type="Theme" id="Theme_fwogg"]
+
+[node name="Win" type="Node2D"]
+script = ExtResource("1_brx57")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_s8rwd")
+expand_mode = 1
+
+[node name="MMB" type="Label" parent="."]
+offset_left = 215.0
+offset_top = 257.0
+offset_right = 951.0
+offset_bottom = 337.0
+theme_override_fonts/font = ExtResource("4_nntig")
+theme_override_font_sizes/font_size = 50
+text = "ПОБЕДА"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Menu_button" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 434.0
+offset_top = 371.0
+offset_right = 709.0
+offset_bottom = 589.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuButton" type="Button" parent="Menu_button"]
+layout_mode = 2
+theme = SubResource("Theme_fwogg")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0.45098)
+theme_override_fonts/font = ExtResource("5_c13gr")
+theme_override_font_sizes/font_size = 50
+text = "Меню"
+
+[connection signal="pressed" from="Menu_button/MenuButton" to="." method="_on_menu_button_pressed"]
