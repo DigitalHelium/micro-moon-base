@@ -5,13 +5,20 @@ var building_manager: BuildingManager;
 
 # Called when the node enters the scene tree for the first time.
 func init(build: Building.BuildingClass, building_manager: BuildingManager):
-	self.text = build.building_name;
+	%name.text = build.building_name
+	%cost_energy.text = str(build.cost.energy)
+	%cost_metal.text = str(build.cost.metal)
+	%cost_poison.text = str(build.cost.science)
+
 	self.build = build;
 	self.building_manager = building_manager;
 	var tile_map = $TileMapLayer
-	building_manager.draw_building_to_map(tile_map, Vector2i(1, 1), build, null, null)
+	building_manager.draw_building_to_store(tile_map, Vector2i(1, 1), build, null, null)
+
 
 func _ready() -> void:
+	#$Button.pressed()
+	#$".".pressed.connect(.)
 	#var tile_map = self.get_child_count()
 	#print(self.get_child_count())
 	#building_manager.draw_building_to_map(tile_map, Vector2i(1, 1), build)
@@ -24,3 +31,8 @@ func _process(delta: float) -> void:
 			
 func _get_drag_data(position):
 	return self
+
+
+func _on_pressed() -> void:
+	pass
+	

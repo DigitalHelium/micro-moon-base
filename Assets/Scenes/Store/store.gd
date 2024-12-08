@@ -14,6 +14,7 @@ func _ready() -> void:
 		var node = preload("res://Assets/Scenes/Store/StoreItem.tscn").instantiate()
 		node.init(build, building_manager)
 		builds_container.add_child(node);
+		
 	pass # Replace with function body.
 
 
