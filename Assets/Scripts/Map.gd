@@ -72,6 +72,7 @@ func update_energi_layer():
 	for tile_key in tile_manager.tiles:
 		if (tile_manager.tiles[tile_key].effects.has(Tile.TileClass.Effect.Elctric)):
 			energi_map.set_cell(tile_key, 0, Vector2i(0, 0))
+			print(tile_key)
 
 func remove_building():
 	#tile_manager.remove_object(base_pose, building)

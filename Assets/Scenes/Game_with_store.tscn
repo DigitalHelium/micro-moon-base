@@ -2210,7 +2210,7 @@ tile_set = SubResource("TileSet_2rwpf")
 
 [node name="energi" type="TileMapLayer" parent="World"]
 unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0.576471)
+modulate = Color(1, 1, 1, 0.592157)
 tile_set = SubResource("TileSet_22l5u")
 
 [node name="rock" type="TileMapLayer" parent="World"]
