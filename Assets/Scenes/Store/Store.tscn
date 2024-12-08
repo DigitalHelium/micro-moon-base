@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsyettj18sx5e"]
+[gd_scene load_steps=5 format=3 uid="uid://bsyettj18sx5e"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Store/store.gd" id="1_neks3"]
+[ext_resource type="Texture2D" uid="uid://cb63gwp2d8ml6" path="res://Assets/Textures/metal.png" id="2_vooh7"]
+[ext_resource type="Texture2D" uid="uid://bwda6w6su1ax" path="res://Assets/Textures/energi.png" id="3_ajnnt"]
+[ext_resource type="Texture2D" uid="uid://bc83em6lfcm4t" path="res://Assets/Textures/poison.png" id="4_tbcgf"]
 
 [node name="Store" type="CanvasLayer"]
 script = ExtResource("1_neks3")
@@ -39,3 +42,89 @@ size_flags_vertical = 8
 size_flags_stretch_ratio = 2.98
 theme_override_constants/separation = 20
 alignment = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -188.0
+offset_right = 118.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer2"]
+layout_mode = 2
+
+[node name="poison_tab" type="Button" parent="Control/PanelContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="poison" type="TextureRect" parent="Control/PanelContainer2/VBoxContainer/poison_tab"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_tbcgf")
+metadata/_edit_use_anchors_ = true
+
+[node name="energi_tab" type="Button" parent="Control/PanelContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="enerji" type="TextureRect" parent="Control/PanelContainer2/VBoxContainer/energi_tab"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ajnnt")
+metadata/_edit_use_anchors_ = true
+
+[node name="metal_tab" type="Button" parent="Control/PanelContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="metal" type="TextureRect" parent="Control/PanelContainer2/VBoxContainer/metal_tab"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vooh7")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/PanelContainer2/VBoxContainer/poison_tab" to="." method="_on_poison_tab_pressed"]
+[connection signal="pressed" from="Control/PanelContainer2/VBoxContainer/energi_tab" to="." method="_on_energi_tab_pressed"]
+[connection signal="pressed" from="Control/PanelContainer2/VBoxContainer/metal_tab" to="." method="_on_metal_tab_pressed"]

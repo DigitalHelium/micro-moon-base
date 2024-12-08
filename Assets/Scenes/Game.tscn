@@ -5,7 +5,6 @@
 [ext_resource type="Script" path="res://Assets/Scripts/Managers/BuildingManager.gd" id="2_83ogw"]
 [ext_resource type="Script" path="res://Assets/Scripts/Map.gd" id="3_6yv6s"]
 [ext_resource type="Script" path="res://Assets/Scenes/Camera.gd" id="3_f1j7i"]
-[ext_resource type="Texture2D" uid="uid://cj8wh2gosffgu" path="res://Assets/Scenes/research_tilemap.png" id="3_qw7v2"]
 [ext_resource type="Texture2D" uid="uid://cb63gwp2d8ml6" path="res://Assets/Textures/metal.png" id="3_y468n"]
 [ext_resource type="Texture2D" uid="uid://bwda6w6su1ax" path="res://Assets/Textures/energi.png" id="4_p68tr"]
 [ext_resource type="Texture2D" uid="uid://bc83em6lfcm4t" path="res://Assets/Textures/poison.png" id="5_myffd"]
@@ -211,8 +210,10 @@ texture = ExtResource("1_6vogn")
 7:8/0 = 0
 8:8/0 = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fpf35"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mkahn"]
-texture = ExtResource("3_qw7v2")
+texture = SubResource("CompressedTexture2D_fpf35")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
