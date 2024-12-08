@@ -91,7 +91,7 @@ func initResearchCenter2Build() -> Building.BuildingClass:
 	var mat = Matrix.MatrixClass.new(rows, columns)
 	mat.set_value(0 , 0, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(1, 0) })
 	mat.set_value(1 , 0, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(3, 3) })
-	mat.set_value(2 , 0, {type = BuildingPart.BuildingPartClass.Type.Research, atlas = Vector2i(4, 3) })
+	mat.set_value(2 , 0, {type = BuildingPart.BuildingPartClass.Type.Enterance, atlas = Vector2i(3, 4) })
 	mat.set_value(0 , 1, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(0, 2) })
 	mat.set_value(0 , 2, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(1, 2) })
 	mat.set_value(1 , 2, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(3, 3) })
