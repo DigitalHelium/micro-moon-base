@@ -8,25 +8,34 @@ script = ExtResource("1_neks3")
 [node name="Control" type="Control" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -200.0
-offset_right = 140.0
+offset_top = -235.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
 self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -200.0
+offset_right = 80.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer"]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(160, 200)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 8
+size_flags_stretch_ratio = 2.98
+theme_override_constants/separation = 20
+alignment = 2

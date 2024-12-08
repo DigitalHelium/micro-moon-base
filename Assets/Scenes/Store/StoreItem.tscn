@@ -123,7 +123,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lw2kg")
 script = ExtResource("1_fggpc")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(10, -20)
+position = Vector2(80, 75)
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_cdf65")
 
@@ -147,6 +147,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="cost_metal" type="Label" parent="VFlowContainer/metal"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 4.0
 offset_top = 32.0
 offset_right = 30.0
@@ -163,6 +164,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="cost_energy" type="Label" parent="VFlowContainer/enerji"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 4.0
 offset_top = 32.0
 offset_right = 30.0
@@ -179,6 +181,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="cost_poison" type="Label" parent="VFlowContainer/poison"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 4.0
 offset_top = 32.0
 offset_right = 30.0
@@ -204,3 +207,5 @@ size_flags_horizontal = 4
 text = "name"
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
