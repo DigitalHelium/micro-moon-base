@@ -8,8 +8,8 @@ var tiles: Dictionary = {}
 
 
 func _init(startI:int, startJ:int, height: int, width: int, tile_map: TileMapLayer):
-	for i in range(startI, startI+height, 1):
-		for j in range(startJ, startJ+width, 1):
+	for i in range(startI, height, 1):
+		for j in range(startJ, width, 1):
 			var coordinates = Vector2i(i,j)
 			var tile_data = tile_map.get_cell_tile_data(coordinates)
 			var current_tile
@@ -60,15 +60,22 @@ func remove_tile_effect(tile_position: Vector2i, effect: Tile.TileClass.Effect) 
 		tiles[tile_position].effects.erase(effect)	
 
 func can_place_object(position: Vector2i, building: Building.BuildingClass) -> bool:
+	var requirement = false
 	for part in building.parts:
 		if !is_tile_placeable(position + part.point_position):
 			return false
+		requirement = part.check_placement_requirements(tiles[position + part.point_position])
+	if !requirement:
+		return false
+	for part in building.parts:
 		if !part.is_point_placeable_ext(tiles[position + part.point_position]):
 			return false
 	return true
 
 func can_place_part(part: BuildingPart.BuildingPartClass, position: Vector2i) -> bool:
 	if !is_tile_placeable(position + part.point_position):
+		return false
+	if !part.check_placement_requirements(tiles[position + part.point_position]):
 		return false
 	if !part.is_point_placeable_ext(tiles[position + part.point_position]):
 		return false

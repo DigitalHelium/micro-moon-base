@@ -20,7 +20,7 @@ var select_building_type = 0
 func _ready() -> void:
 	building_mode = true
 	resource_manager = resource_manager_scene.resource_manager
-	tile_manager = TileManger.new(-10,-10,50,40, title_map)
+	tile_manager = TileManger.new(-100,-100,100,100, title_map)
 	building_manager = BuildingManager.new()
 	print(building_manager)
 	$"../../Store".set_building_manager(building_manager)
