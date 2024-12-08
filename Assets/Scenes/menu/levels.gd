@@ -6,11 +6,12 @@ func _on_menu_button_pressed() -> void:
 
 
 func _on__pressed_1() -> void:
-	SceneTransition.change_scene("res://Assets/Scenes/Game_with_store.tscn")
+	SceneTransition.change_scene("res://Assets/Scenes/Levels/Level_1.tscn")
 	print('1')
 
 
 func _on__pressed_2() -> void:
+	SceneTransition.change_scene("res://Assets/Scenes/Levels/Level_2.tscn")
 	print('2')
 	pass # Replace with function body.
 
