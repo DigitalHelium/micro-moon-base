@@ -13,7 +13,7 @@ func do_when_placed(position: Vector2i, tile_manager: TileManger, resource_manag
 			var current_position = Vector2i(i,j)
 			tile_manager.add_tile_effect(current_position, Tile.TileClass.Effect.Elctric)
 			if tile_manager.is_tile_type(current_position, Tile.TileClass.Type.Crystal):
-				print("yay")
+				#print("yay")
 				resource_manager.add_resource(GameResource.ResourceClass.Type.Science, 1)
 				pass
 	pass

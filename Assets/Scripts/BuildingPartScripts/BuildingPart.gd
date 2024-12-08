@@ -32,7 +32,7 @@ class BuildingPartClass extends Node:
 
 # Вспомогательный метод потом если надо
 	func check_placement_requirements(tile: Tile.TileClass) -> bool:
-		return false
+		return true
 		
 	func set_occupird(occ: bool) -> void:
 		is_occupied = occ
