@@ -9,6 +9,8 @@ enum Type {
 	RESEARCH_2_LAB = 2,
 	RESEARCH_2_EX_LAB = 3,
 	POWER_TOWER = 4,
+	DINAMITE_L = 5,
+	DINAMITE_R = 6,
 }
 
 func _ready() -> void:
@@ -38,6 +40,8 @@ func getInitBuilding(type_build: int) -> Building.BuildingClass:
 		Type.RESEARCH_2_LAB: return initResearchCenter2Build()
 		Type.RESEARCH_2_EX_LAB: return initResearchCenter2WithExBuild()
 		Type.POWER_TOWER: return initPowerTowerBuild()
+		Type.DINAMITE_L: return initDinamityLBuild()
+		Type.DINAMITE_R: return initDinamityRBuild()
 		_: return null
 	
 func initResearchBuild() -> Building.BuildingClass:
@@ -129,6 +133,37 @@ func initPowerTowerBuild() -> Building.BuildingClass:
 	
 	building.init_building_parts(mat)
 	return building
+	
+func initDinamityLBuild() -> Building.BuildingClass:
+	var bulding_cost = Building.BuildingCost.new(0,2,3)
+	var building = MetalBuilding.MetalBuildingClass.new("Dinamite L", "DESC", bulding_cost)
+	
+	var rows = 3
+	var columns = 1
+	
+	var mat = Matrix.MatrixClass.new(rows, columns)
+	mat.set_value(0 , 0, {type = BuildingPart.BuildingPartClass.Type.Dynamite, atlas = Vector2i(7, 5) })
+	mat.set_value(1 , 0, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(0, 5) })
+	mat.set_value(2 , 0, {type = BuildingPart.BuildingPartClass.Type.Enterance, atlas = Vector2i(4, 4) })
+	
+	building.init_building_parts(mat)
+	return building
+	
+func initDinamityRBuild() -> Building.BuildingClass:
+	var bulding_cost = Building.BuildingCost.new(0,2,3)
+	var building = MetalBuilding.MetalBuildingClass.new("Dinamite R", "DESC", bulding_cost)
+	
+	var rows = 3
+	var columns = 1
+	
+	var mat = Matrix.MatrixClass.new(rows, columns)
+	mat.set_value(2 , 0, {type = BuildingPart.BuildingPartClass.Type.Dynamite, atlas = Vector2i(7, 5) })
+	mat.set_value(1 , 0, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(0, 5) })
+	mat.set_value(0 , 0, {type = BuildingPart.BuildingPartClass.Type.Enterance, atlas = Vector2i(4, 4) })
+	
+	building.init_building_parts(mat)
+	return building
+	
 		
 func draw_building_to_store(title_map: TileMapLayer, base_pose: Vector2i, building: Building.BuildingClass, error_display_map: TileMapLayer, tile_manager: TileManger):
 	var w = 0
