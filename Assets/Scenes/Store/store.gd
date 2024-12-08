@@ -30,9 +30,9 @@ func update_store_catalog():
 	for build_item in building_manager.Type:
 		if (selected_tab == 0 && [0, 1, 2, 3].has(building_manager.Type[build_item])):
 			add_store_item(building_manager.Type[build_item])
-		elif (selected_tab == 1 && [4].has(building_manager.Type[build_item])):
+		elif (selected_tab == 1 && [4, 5].has(building_manager.Type[build_item])):
 			add_store_item(building_manager.Type[build_item])
-		elif (selected_tab == 2 && [5, 6].has(building_manager.Type[build_item])):
+		elif (selected_tab == 2 && [6, 7, 8].has(building_manager.Type[build_item])):
 			add_store_item(building_manager.Type[build_item])
 		
 func add_store_item(item_type: int):

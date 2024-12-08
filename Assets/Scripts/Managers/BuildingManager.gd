@@ -8,9 +8,10 @@ enum Type {
 	RESEARCH_P_LAB = 1,
 	RESEARCH_2_LAB = 2,
 	RESEARCH_2_EX_LAB = 3,
-	POWER_TOWER = 4,
-	DINAMITE_L = 5,
-	DINAMITE_R = 6,
+	ONE_POWER_TOWER = 4,
+	POWER_TOWER = 5,
+	DINAMITE_L = 6,
+	DINAMITE_R = 7,
 }
 
 func _ready() -> void:
@@ -40,6 +41,7 @@ func getInitBuilding(type_build: int) -> Building.BuildingClass:
 		Type.RESEARCH_2_LAB: return initResearchCenter2Build()
 		Type.RESEARCH_2_EX_LAB: return initResearchCenter2WithExBuild()
 		Type.POWER_TOWER: return initPowerTowerBuild()
+		Type.ONE_POWER_TOWER: return initOnePowerTowerBuild()
 		Type.DINAMITE_L: return initDinamityLBuild()
 		Type.DINAMITE_R: return initDinamityRBuild()
 		_: return null
@@ -115,6 +117,19 @@ func initResearchCenter2WithExBuild() -> Building.BuildingClass:
 	mat.set_value(4 , 1, {type = BuildingPart.BuildingPartClass.Type.Path, atlas = Vector2i(3, 2) })
 	mat.set_value(4 , 0, {type = BuildingPart.BuildingPartClass.Type.Research, atlas = Vector2i(0, 0) })
 	mat.set_value(3 , 2, {type = BuildingPart.BuildingPartClass.Type.Enterance, atlas = Vector2i(3, 5) })
+	
+	building.init_building_parts(mat)
+	return building
+	
+func initOnePowerTowerBuild() -> Building.BuildingClass:
+	var bulding_cost = Building.BuildingCost.new(1,0,2)
+	var building = ElectricBuilding.ElectricBuildingClass.new("Power Tower", "DESC", bulding_cost)
+	
+	var rows = 1
+	var columns = 1
+	
+	var mat = Matrix.MatrixClass.new(rows, columns)
+	mat.set_value(0 , 0, {type = BuildingPart.BuildingPartClass.Type.PowerTower, atlas = Vector2i(6, 4) })
 	
 	building.init_building_parts(mat)
 	return building
