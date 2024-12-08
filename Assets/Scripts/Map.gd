@@ -59,7 +59,8 @@ func place_building(base_pose: Vector2i):
 		building_manager.add_building(base_pose, building, resource_manager.get_resources())
 		update_energi_layer()
 	
-	print(tile_manager.is_goal_powered())
+	if (tile_manager.is_goal_powered()):
+		SceneTransition.change_scene("res://Assets/Scenes/menu/menu.tscn")
 		
 func update_building_preview():
 	var mouse_pos = get_global_mouse_position()
