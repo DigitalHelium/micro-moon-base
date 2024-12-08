@@ -3,11 +3,13 @@ class_name TileManger extends Node
 
 
 # Словарь где ключи - координаты Vector2, а значение - объект типа Tile
-var tiles: Dictionary = {} 
+var tiles: Dictionary = {}
+var rock_map: TileMapLayer;
 
 var end_tile: Tile.TileClass
 
 func _init(startI:int, startJ:int, height: int, width: int, tile_map: TileMapLayer):
+	self.rock_map = tile_map
 	for i in range(startI, height, 1):
 		for j in range(startJ, width, 1):
 			var coordinates = Vector2i(i,j)

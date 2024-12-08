@@ -11,18 +11,18 @@ func _ready() -> void:
 func init_resources():
 	resource[GameResource.ResourceClass.Type.Metal] = GameResource.ResourceClass.new(
 		GameResource.ResourceClass.Type.Metal,
-		4,
-		100
+		100,
+		200
 	)
 	resource[GameResource.ResourceClass.Type.Energy] = GameResource.ResourceClass.new(
 		GameResource.ResourceClass.Type.Energy,
-		4,
-		100
+		100,
+		200
 	)
 	resource[GameResource.ResourceClass.Type.Science] = GameResource.ResourceClass.new(
 		GameResource.ResourceClass.Type.Science,
-		10,
-		100
+		100,
+		200
 	)
 	
 	

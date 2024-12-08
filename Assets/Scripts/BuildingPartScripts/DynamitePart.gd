@@ -13,6 +13,7 @@ func do_when_placed(position: Vector2i, tile_manager: TileManger, resource_manag
 			var current_position = Vector2i(i,j)
 			if tile_manager.has_tile_effect(current_position, Tile.TileClass.Effect.Wall):
 				tile_manager.remove_tile_effect(current_position, Tile.TileClass.Effect.Wall)
+				tile_manager.rock_map.erase_cell(current_position);
 				resource_manager.add_resource(GameResource.ResourceClass.Type.Metal, 2)
 				pass
 			if (i >= -1 and i <= 1) and (j >= -1 and j <= 1):
