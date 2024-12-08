@@ -162,3 +162,20 @@ func draw_building_to_map(title_map: TileMapLayer, base_pose: Vector2i, building
 				error_display_map.set_cell(place_pos, 0, Vector2i(1, 0))
 			else:
 				error_display_map.set_cell(place_pos, 0, Vector2i(0, 0))
+
+#func update_display_layer(title_map: TileMapLayer, base_pose: Vector2i, building: Building.BuildingClass, tile_manager: TileManger,  resource_manager: ResourceManager):
+	#title_map.clear();
+	#if (building == null):
+		#return;
+	#var has_resources = resource_manager.has_resource(building.cost);
+	#for part in building.parts:
+		#var place_pos = base_pose + part.point_position
+		#if (title_map != null && tile_manager != null):
+			#if(tile_manager.can_place_part(part, base_pose) && has_resources):
+				#title_map.set_cell(place_pos, 0, Vector2i(1, 0))
+			#else:
+				#title_map.set_cell(place_pos, 0, Vector2i(0, 0))
+	#for tile_key in tile_manager.tiles:
+		#if (tile_manager.tiles[tile_key].effects.has(Tile.TileClass.Effect.Elctric)):
+			#title_map.set_cell(tile_key, 0, Vector2i(1, 0))
+			

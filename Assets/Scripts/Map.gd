@@ -4,6 +4,7 @@ extends Node2D
 @onready var display_map: TileMapLayer = %display
 @onready var error_display_map: TileMapLayer =  %errorDisplayMap
 @onready var resource_manager_scene = %ResourceManager
+@onready var energi_map = %energi
 
 
 const LAYER_ID = 0
@@ -24,6 +25,7 @@ func _ready() -> void:
 	building_manager = BuildingManager.new()
 	print(building_manager)
 	$"../../Store".set_building_manager(building_manager)
+	update_energi_layer()
 	#$".".pressed.connection(self.updType($".".building_manager))
 	pass
 	
@@ -53,6 +55,7 @@ func place_building(base_pose: Vector2i):
 		building.do_when_placed(base_pose, tile_manager, resource_manager)
 		building_manager.draw_building_to_map(title_map, base_pose, building, null, null, null)
 		building_manager.add_building(base_pose, building, resource_manager.get_resources())
+		update_energi_layer()
 		
 func update_building_preview():
 	var mouse_pos = get_global_mouse_position()
@@ -62,6 +65,13 @@ func update_building_preview():
 		display_map.clear();
 		error_display_map.clear()
 		building_manager.draw_building_to_map(display_map, title_pos, building, error_display_map, tile_manager, resource_manager)
+		#building_manager.update_display_layer(error_display_map, title_pos, building, tile_manager, resource_manager)
+
+func update_energi_layer():
+	energi_map.clear();
+	for tile_key in tile_manager.tiles:
+		if (tile_manager.tiles[tile_key].effects.has(Tile.TileClass.Effect.Elctric)):
+			energi_map.set_cell(tile_key, 0, Vector2i(0, 0))
 
 func remove_building():
 	#tile_manager.remove_object(base_pose, building)
