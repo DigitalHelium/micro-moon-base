@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdohv7qfwo8hl"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/Menu/levels.gd" id="1_wo31f"]
+[ext_resource type="Texture2D" uid="uid://dy75267retb6d" path="res://Assets/Textures/2824536.png" id="2_wpqcu"]
+[ext_resource type="FontFile" uid="uid://ceo4mc4vdaot8" path="res://Assets/Fonts/PixeloidMono.ttf" id="3_3rvvo"]
+[ext_resource type="FontFile" uid="uid://ci540ool1sidk" path="res://Assets/Fonts/pixel-anchor-jack_0.ttf" id="4_lyh8m"]
+
+[sub_resource type="Theme" id="Theme_os5f2"]
+
+[sub_resource type="Theme" id="Theme_qb81l"]
+
+[node name="Levels" type="Node2D"]
+script = ExtResource("1_wo31f")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_wpqcu")
+expand_mode = 1
+
+[node name="Menu_button" type="HBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -158.0
+offset_top = 273.0
+offset_right = 168.0
+offset_bottom = -270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 95
+
+[node name="1" type="Button" parent="Background/Menu_button"]
+unique_name_in_owner = true
+physics_interpolation_mode = 0
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0.392157)
+theme_override_constants/h_separation = 11
+theme_override_fonts/font = ExtResource("3_3rvvo")
+theme_override_font_sizes/font_size = 50
+text = "1"
+
+[node name="2" type="Button" parent="Background/Menu_button"]
+unique_name_in_owner = true
+physics_interpolation_mode = 0
+custom_minimum_size = Vector2(6, 5)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = SubResource("Theme_os5f2")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0.45098)
+theme_override_constants/h_separation = 11
+theme_override_fonts/font = ExtResource("3_3rvvo")
+theme_override_font_sizes/font_size = 50
+text = "2"
+
+[node name="3" type="Button" parent="Background/Menu_button"]
+unique_name_in_owner = true
+physics_interpolation_mode = 0
+layout_mode = 2
+size_flags_horizontal = 8
+theme = SubResource("Theme_os5f2")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0.513726)
+theme_override_constants/h_separation = 11
+theme_override_fonts/font = ExtResource("3_3rvvo")
+theme_override_font_sizes/font_size = 50
+text = "3"
+
+[node name="MenuButton" type="Button" parent="Background"]
+layout_mode = 0
+offset_left = 501.0
+offset_top = 465.0
+offset_right = 642.0
+offset_bottom = 535.0
+theme = SubResource("Theme_qb81l")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0.45098)
+theme_override_fonts/font = ExtResource("3_3rvvo")
+theme_override_font_sizes/font_size = 50
+text = "Меню"
+
+[node name="MMB" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 217.0
+offset_top = 106.0
+offset_right = 953.0
+offset_bottom = 186.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_lyh8m")
+theme_override_font_sizes/font_size = 50
+text = "Уровни"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Background/Menu_button/1" to="." method="_on__pressed_1"]
+[connection signal="pressed" from="Background/Menu_button/2" to="." method="_on__pressed_2"]
+[connection signal="pressed" from="Background/Menu_button/3" to="." method="_on__pressed_3"]
+[connection signal="pressed" from="Background/MenuButton" to="." method="_on_menu_button_pressed"]

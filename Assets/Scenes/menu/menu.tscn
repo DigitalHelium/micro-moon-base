@@ -1,0 +1,125 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckwfg4v022me4"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/Menu/menu.gd" id="1_t0yh7"]
+[ext_resource type="Texture2D" uid="uid://dy75267retb6d" path="res://Assets/Textures/2824536.png" id="2_h5ndd"]
+[ext_resource type="Texture2D" uid="uid://q6odhfjlpqh1" path="res://Assets/Textures/moon.png" id="3_ao4fp"]
+[ext_resource type="Texture2D" uid="uid://dsd1cp4x21skh" path="res://Assets/Textures/Magi v jame png (2).png" id="4_vgb3f"]
+[ext_resource type="FontFile" uid="uid://ci540ool1sidk" path="res://Assets/Fonts/pixel-anchor-jack_0.ttf" id="5_8yq7a"]
+[ext_resource type="FontFile" uid="uid://ceo4mc4vdaot8" path="res://Assets/Fonts/PixeloidMono.ttf" id="6_ui614"]
+
+[sub_resource type="Theme" id="Theme_t4idd"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t0yh7")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_h5ndd")
+expand_mode = 1
+
+[node name="Moon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 794.0
+offset_top = -271.0
+offset_right = 1406.0
+offset_bottom = 341.0
+texture = ExtResource("3_ao4fp")
+flip_h = true
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -558.0
+offset_top = 169.0
+offset_right = 786.0
+offset_bottom = 1513.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_vgb3f")
+stretch_mode = 4
+
+[node name="MMB" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -367.5
+offset_top = 153.0
+offset_right = 368.5
+offset_bottom = 233.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_8yq7a")
+theme_override_font_sizes/font_size = 50
+text = "MICRO MOON BASE"
+
+[node name="m" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -424.0
+offset_top = 586.0
+offset_right = -190.0
+offset_bottom = 612.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_8yq7a")
+theme_override_font_sizes/font_size = 16
+text = "By Маги в дежме"
+
+[node name="Menu_button" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.5
+offset_top = -38.0
+offset_right = 137.5
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TeachButton" type="Button" parent="Menu_button"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0.392157)
+theme_override_fonts/font = ExtResource("6_ui614")
+theme_override_font_sizes/font_size = 50
+text = "Обучение"
+
+[node name="StartButton" type="Button" parent="Menu_button"]
+layout_mode = 2
+theme = SubResource("Theme_t4idd")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0.45098)
+theme_override_fonts/font = ExtResource("6_ui614")
+theme_override_font_sizes/font_size = 50
+text = "Играть"
+
+[node name="QuitButton" type="Button" parent="Menu_button"]
+layout_mode = 2
+theme = SubResource("Theme_t4idd")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0.513726)
+theme_override_fonts/font = ExtResource("6_ui614")
+theme_override_font_sizes/font_size = 50
+text = "Выход"
+
+[connection signal="pressed" from="Menu_button/TeachButton" to="." method="_on_teach_button_pressed"]
+[connection signal="pressed" from="Menu_button/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Menu_button/QuitButton" to="." method="_on_quit_button_pressed"]

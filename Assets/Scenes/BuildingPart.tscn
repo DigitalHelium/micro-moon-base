@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg3rlj182c6wt"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/BuildingPartScripts/BuildingPart.gd" id="1_krmb5"]
+[ext_resource type="PackedScene" uid="uid://dwrvkslmx8qhk" path="res://Assets/Scenes/ResearchPart.tscn" id="2_ouoqg"]
+
+[node name="BuildingPart" type="Node2D"]
+script = ExtResource("1_krmb5")
+
+[node name="ResearchPart" parent="." instance=ExtResource("2_ouoqg")]
